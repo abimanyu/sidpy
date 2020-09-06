@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{{ Title }}
+{% block content %}
+
+    {% include "widgets/slider.html" %}
+
+    {% include "widgets/intro_covid.html" %}
+
+    {% include "widgets/berita_frontpages.html" %}
+
+    {% include "widgets/statistik.html" %}
+
+    <hr class="solid my-5">
+
+    {% include "widgets/intro_produk.html" %}
+
+{% endblock content %}

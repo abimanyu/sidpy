@@ -1,0 +1,466 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ SiteTitle }}</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    
+    <link rel="shortcut icon" href="{% static "images/favicon.png" type="image/x-icon" %}" />
+    <link rel="apple-touch-icon" href="{% static "images/favicon.png" %}" />
+
+    <link href="x" rel="alternate" type="application/rss+xml" title="title" />
+    <link href="x" rel="feed" type="application/rss+xml" title="title" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/fontawesome-free/css/all.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/animate/animate.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/simple-line-icons/css/simple-line-icons.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/owl.carousel/assets/owl.carousel.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/owl.carousel/assets/owl.theme.default.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/magnific-popup/magnific-popup.min.css" %}">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static "css/theme.css" %}">
+    <link rel="stylesheet" href="{% static "css/theme-elements.css" %}">
+    <link rel="stylesheet" href="{% static "css/theme-blog.css" %}">
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="{% static "vendor/rs-plugin/css/settings.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/rs-plugin/css/layers.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/rs-plugin/css/navigation.css" %}">
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="{% static "css/skins.css" %}"> 
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    <!-- Head Libs -->
+    <script src="{% static "vendor/modernizr/modernizr.min.js" %}"></script>
+
+    <meta name="robots" CONTENT="index, follow">
+
+  </head>
+
+  <body class="loading-overlay-showing" data-plugin-page-transition data-loading-overlay data-plugin-options="{'hideDelay': 500}">
+
+    <div class="loading-overlay">
+			<div class="bounce-loader">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+    </div>
+    
+    <div class="body">
+      
+        <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
+            <div class="header-body border-top-0">
+                <div class="header-top">
+                    <div class="container">
+                        <div class="header-row py-2">
+                            
+                            <div class="header-column justify-content-start">
+                                <div class="header-row">
+                                    <nav class="header-nav-top">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item nav-item-anim-icon">
+                                                <a class="nav-link pl-0" href="#"><i class="fas fa-angle-right"></i> Kantor Desa</a>
+                                            </li>
+                                            <li class="nav-item nav-item-anim-icon">
+                                                <a class="nav-link" href="#"><i class="fas fa-angle-right"></i> Aspirasi Desa</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            
+                            <div class="header-column justify-content-end">
+                                <div class="header-row">
+                                    <div class="header-nav-features header-nav-features-no-border">
+                                        <span class="badge badge-quaternary text-light badge-sm">kode desa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-container container">
+                    <div class="header-row">
+                        <div class="header-column justify-content-start w-50 order-md-1 d-none d-md-flex">
+                            <div class="header-row">
+                                <ul class="header-extra-info">
+                                    <li class="m-0">
+                                        <div class="feature-box reverse-allres feature-box-style-2 align-items-center">
+                                            
+                                            <div >
+                                                <p class="pb-0 line-height-50 text-2">
+                                                    <a href="/"><h2 class="gradient-text-color font-weight-bold m-0">title</h2></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header-column justify-content-start justify-content-md-center order-1 order-md-2">
+                            <div class="header-row">
+                                <div class="header-logo">
+                                    <a href="/">
+                                        <img alt="Desa.id" width="100" height="100" data-sticky-width="60" data-sticky-height="60" src="{% static "images/logo.png" %}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-column justify-content-end w-50 order-2 order-md-3">
+                            <div class="header-row">
+                                <ul class="header-extra-info">
+                                    <li class="m-0">
+                                        <div class="feature-box reverse-allres feature-box-style-2 align-items-center">
+                                            <div class="feature-box-info">
+                                                <p class="pb-0 font-weight-semibold line-height-5 text-2">
+                                                    <h5 class="text-color-secondary">Kecamatan xx</h5>
+                                                    <span class="text-color-secondary">Kabupaten xx, Kalimantan Barat</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-nav-bar header-nav-bar-top-border">
+                    <div class="header-container container">
+                        <div class="header-row">
+                            <div class="header-column">
+                                <div class="header-row justify-content-end">
+                                    <div class="header-nav p-0">
+                                        <div class="header-nav header-nav-links justify-content-lg-center">
+                                            <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-dropdown-arrow header-nav-main-dropdown-center header-nav-main-dropdown-center-bottom header-nav-main-effect-3 header-nav-main-sub-effect-1">
+                                                <nav class="collapse">
+                                                    <ul class="nav nav-pills flex-column flex-lg-row" id="mainNav">
+                                                        <li class="dropdown dropdown-mega">
+                                                            <a class="dropdown-item dropdown-toggle active" href="#">
+                                                                Profil Desa
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <div class="dropdown-mega-content">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-3">
+                                                                                <span class="dropdown-mega-sub-title">Profil</span>
+                                                                                <ul class="dropdown-mega-sub-nav">
+                                                                                    <li><a class="dropdown-item" href="/profil/umum/">Kondisi Umum Desa</a></li>
+                                                                                    <li><a class="dropdown-item" href="/profil/isu-strategis-desa/">Masalah &amp; Isu Strategis Desa </a></li>
+                                                                                    <li><a class="dropdown-item" href="/profil/kebijakan-pembangunan/">Kebijakan Pembangunan Desa</a></li>
+                                                                                    <li><a class="dropdown-item" href="/profil/kebijakan-keuangan/">Kebijakan Keuangan Desa</a></li>
+                                                                                    <li><a class="dropdown-item" href="/profil/sejarah/">Sejarah Desa</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Peta Desa</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Berita Desa</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Artikel Desa</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Agenda Desa <span class="tip tip-red">baru</span></a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Galeri Foto &amp; Video</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="col-lg-3">
+                                                                                <span class="dropdown-mega-sub-title">Pemerintahan Desa</span>
+                                                                                <ul class="dropdown-mega-sub-nav">
+                                                                                    <li><a class="dropdown-item" href="/profil/visimisi/">Visi &amp; Misi</a></li>
+                                                                                    <li><a class="dropdown-item" href="/profil/kepala-desa/">Kepala Desa</a></li>
+                                                                                    <li><a class="dropdown-item" href="/profil/perangkat-desa/">Perangkat Desa</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Struktur Organisasi</a></li>
+                                                                                    <li><a class="dropdown-item" href="/bpd/">Badan Permusyawaratan Desa</a></li>
+                                                                                </ul>
+                                                                                <span class="dropdown-mega-sub-title">Pengelola Informasi</span>
+                                                                                <ul class="dropdown-mega-sub-nav">
+                                                                                    <li><a class="dropdown-item" href="/ppid/sekretariat/">Sekretariat PPID</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Struktur Organisasi PPID</a></li>
+                                                                                    <li><a class="dropdown-item" href="/ppid/tupoksi/">Tupoksi PPID</a></li>	
+                                                                                    <li><a class="dropdown-item" href="#">SK PPID</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="col-lg-3">
+                                                                                <span class="dropdown-mega-sub-title">Lembaga Masyarakat Desa</span>
+                                                                                <ul class="dropdown-mega-sub-nav">
+                                                                                    <li><a class="dropdown-item" href="#">L P M D</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Lembaga Adat</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">TP PKK</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">B U M D E S</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Karang Taruna</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">RT / RW</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Linmas</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">B P D</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">POSYANDU</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Gabungan Kelompok Tani</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Lembaga Masyarakat Lainnya</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="col-lg-3">
+                                                                                <span class="dropdown-mega-sub-title">Sarana Desa</span>
+                                                                                <ul class="dropdown-mega-sub-nav">
+                                                                                    <li><a class="dropdown-item" href="#">Pendidikan</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Kesehatan</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Keagamaan</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Olah Raga</a></li>
+                                                                                    <li><a class="dropdown-item" href="#">Umum</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">
+                                                                Data Desa
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="#">Data Wilayah Administratif</a></li>
+                                                                <li><a class="dropdown-item" href="#">Data Pendidikan dalam KK</a></li>
+                                                                <li><a class="dropdown-item" href="#">Data Pendidikan Ditempuh</a></li>
+                                                                <li><a class="dropdown-item" href="#">Data Pekerjaan</a></li>
+                                                                <li><a class="dropdown-item" href="#">Data Agama</a></li>
+                                                                <li><a class="dropdown-item" href="#">Data Jenis Kelamin</a></li>
+                                                                <li><a class="dropdown-item" href="#">Data Golongan Darah</a></li>
+                                                                <li><a class="dropdown-item" href="#">Data Kelompok Umur</a></li>
+                                                                <li><a class="dropdown-item" href="#">Data Warga Negara</a></li>
+                                                                <li><a class="dropdown-item" href="#">Status Perkawinan</a></li>
+                                                                <li><a class="dropdown-item" href="#">Data Analisis</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">
+                                                                Pelayanan
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="#">Pustaka</a></li>
+                                                                <li><a class="dropdown-item" href="#">Form Kependudukan</a></li>
+                                                                <li><a class="dropdown-item" href="#">Surat Keterangan &amp; Rekomendasi</a></li>
+                                                                <li><a class="dropdown-item" href="#">Izin SITU, SIUP, TDP</a></li>
+                                                                <li><a class="dropdown-item" href="#">Akta Catatan Sipil</a></li>
+                                                                <li><a class="dropdown-item" href="#">Pembuatan Akta Kelahiran</a></li>
+                                                                <li><a class="dropdown-item" href="#">Pembuatan Akta Perkawinan</a></li>
+                                                                <li><a class="dropdown-item" href="#">Pembuatan KK</a></li>
+                                                                <li><a class="dropdown-item" href="#">Pembuatan e-KTP</a></li>
+                                                                <li><a class="dropdown-item" href="#">Pembuatan SKCK</a></li>
+                                                                <li><a class="dropdown-item" href="#">Keterangan Usaha</a></li>
+                                                                <li><a class="dropdown-item" href="#">Keterangan Keramaian</a></li>
+                                                                <li><a class="dropdown-item" href="#">Pindah/Datang Penduduk</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">
+                                                                Produk Hukum
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="#">Undang-undang</a></li>
+                                                                <li><a class="dropdown-item" href="#">PERMENDAGRI</a></li>
+                                                                <li><a class="dropdown-item" href="#">PERMENPDT</a></li>
+                                                                <li><a class="dropdown-item" href="#">Peraturan Daerah</a></li>
+                                                                <li><a class="dropdown-item" href="#">Peraturan Bupati</a></li>
+                                                                <li><a class="dropdown-item" href="#">Peraturan Desa <span class="tip tip-dark">update</span></a></li>
+                                                                <li><a class="dropdown-item" href="#">Peraturan Pemerintah</a></li>
+                                                                <li><a class="dropdown-item" href="#">PERKADES</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">
+                                                                Laporan
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="#">Statistik APBDes <span class="tip tip-red">baru</span></a></li>
+                                                                <li class="dropdown-submenu">
+                                                                    <a class="dropdown-item" href="#">L P P D</a>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="#">LPPD Tahun 2020</a></li>
+                                                                        <li><a class="dropdown-item" href="#">LPPD Tahun 2019</a></li>
+                                                                        <li><a class="dropdown-item" href="#">LPPD Tahun 2018</a></li>
+                                                                        <li><a class="dropdown-item" href="#">LPPD Tahun 2017</a></li>
+                                                                        <li><a class="dropdown-item" href="#">LPPD Tahun 2016</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="dropdown-submenu">
+                                                                    <a class="dropdown-item" href="#">L K P J</a>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="#">LKPJ Tahun 2020</a></li>
+                                                                        <li><a class="dropdown-item" href="#">LKPJ Tahun 2019</a></li>
+                                                                        <li><a class="dropdown-item" href="#">LKPJ Tahun 2018</a></li>
+                                                                        <li><a class="dropdown-item" href="#">LKPJ Tahun 2017</a></li>
+                                                                        <li><a class="dropdown-item" href="#">LKPJ Tahun 2016</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="dropdown-submenu">
+                                                                    <a class="dropdown-item" href="#">Laporan Bulanan</a>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="#">Laporan Bulanan Tahun 2020</a></li>
+                                                                        <li><a class="dropdown-item" href="#">Laporan Bulanan Tahun 2019</a></li>
+                                                                        <li><a class="dropdown-item" href="#">Laporan Bulanan Tahun 2018</a></li>
+                                                                        <li><a class="dropdown-item" href="#">Laporan Bulanan Tahun 2017</a></li>
+                                                                        <li><a class="dropdown-item" href="#">Laporan Bulanan Tahun 2016</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="dropdown-submenu">
+                                                                    <a class="dropdown-item" href="#">P P I D</a>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li><a class="dropdown-item" href="#">Laporan Tahun 2020</a></li>
+                                                                        <li><a class="dropdown-item" href="#">Laporan Tahun 2019</a></li>
+                                                                        <li><a class="dropdown-item" href="#">Laporan Tahun 2018</a></li>
+                                                                        <li><a class="dropdown-item" href="#">Laporan Tahun 2017</a></li>
+                                                                        <li><a class="dropdown-item" href="#">Laporan Tahun 2016</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <!-- menu lagi //-->
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                            <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
+                                                <i class="fas fa-bars"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </header>
+
+        <div role="main" class="main">
+      
+      <main>
+        <div role="main" class="main">
+          {% block content %}
+
+          {% endblock content %}
+        </div>
+      </main>
+
+      <footer id="footer">
+        <div class="container">
+            <div class="footer-ribbon">
+                <span>Get in Touch</span>
+            </div>
+            <div class="row py-5 my-4">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-3 mb-3">Email Update</h5>
+                    <p class="pr-1">Tetap terhubung dengan website ini dan seluruh aktifitas desa. Silahkan masukkan email anda untuk bergabung.</p>
+                    <div class="alert alert-success d-none" id="newsletterSuccess">
+                        <strong>Success!</strong> You've been added to our email list.
+                    </div>
+                    <div class="alert alert-danger d-none" id="newsletterError"></div>
+                    <form id="newsletterForm" action="/" method="POST" class="mr-4 mb-3 mb-md-0">
+                        <div class="input-group input-group-rounded">
+                            <input class="form-control form-control-sm bg-light" placeholder="Alamat Email" name="newsletterEmail" id="newsletterEmail" type="text">
+                            <span class="input-group-append">
+                                <button class="btn btn-light text-color-dark" type="submit"><strong>GO!</strong></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <h5 class="text-3 mb-3">LATEST INSTAGRAM</h5>
+                    <div id="tweet" class="twitter" data-plugin-tweets data-plugin-options="{'username': '', 'count': 2}">
+                        <p>Memuat...</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                    <div class="contact-details">
+                        <h5 class="text-3 mb-3">Pelayanan Desa</h5>
+                        <ul class="list list-icons list-icons-lg">
+                            <li class="mb-1"><i class="far fa-dot-circle text-color-primary"></i><p class="m-0">alamat</p></li>
+                            <li class="mb-1"><i class="fab fa-whatsapp text-color-primary"></i><p class="m-0"><a href="tel:323223">tefgf3454453</a></p></li>
+                            <li class="mb-1"><i class="far fa-envelope text-color-primary"></i><p class="m-0"><a href="mailto:asa">rdssfsdfsd</a></p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2">
+                    <h5 class="text-3 mb-3">Temukan Kami</h5>
+                    <ul class="social-icons">
+                        <li class="social-icons-facebook"><a href="fb" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="social-icons-twitter"><a href="tw" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li class="social-icons-github"><a href="git" target="_blank" title="Github"><i class="fab fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container py-2">
+                <div class="row py-4">
+                    <div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
+                        <a href="/" class="logo pr-0 pr-lg-3">
+                            <img alt="x" src="{% static "images/logo.png" %}" class="opacity-5" height="66">
+                        </a>
+                    </div>
+                    <div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
+                        <p>&copy; title 2020 for Desa desa. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
+                        <nav id="sub-menu">
+                            <ul>
+                                <li><i class="fas fa-angle-right"></i><a href="/faq/" class="ml-1 text-decoration-none"> FAQ's</a></li>
+                                <li><i class="fas fa-angle-right"></i><a href="/sitemap.xml" class="ml-1 text-decoration-none"> Sitemap</a></li>
+                                <li><i class="fas fa-angle-right"></i><a href="/dev/" class="ml-1 text-decoration-none"> Web Development</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Vendor -->
+    <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "vendor/jquery.appear/jquery.appear.min.js" %}"></script>
+    <script src="{% static "vendor/jquery.easing/jquery.easing.min.js" %}"></script>
+    <script src="{% static "vendor/jquery.cookie/jquery.cookie.min.js" %}"></script>
+    <script src="{% static "vendor/popper/umd/popper.min.js" %}"></script>
+    <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "vendor/common/common.min.js" %}"></script>
+    <script src="{% static "vendor/jquery.validation/jquery.validate.min.js" %}"></script>
+    <script src="{% static "vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js" %}"></script>
+    <script src="{% static "vendor/jquery.gmap/jquery.gmap.min.js" %}"></script>
+    <script src="{% static "vendor/jquery.lazyload/jquery.lazyload.min.js" %}"></script>
+    <script src="{% static "vendor/isotope/jquery.isotope.min.js" %}"></script>
+    <script src="{% static "vendor/owl.carousel/owl.carousel.min.js" %}"></script>
+    <script src="{% static "vendor/magnific-popup/jquery.magnific-popup.min.js" %}"></script>
+    <script src="{% static "vendor/vide/jquery.vide.min.js" %}"></script>
+    <script src="{% static "vendor/vivus/vivus.min.js" %}"></script>
+    
+    <!-- Theme Base, Components and Settings -->
+    <script src="{% static "js/theme.js" %}"></script>
+    
+    <!-- Current Page Vendor and Views -->
+    <script src="{% static "vendor/rs-plugin/js/jquery.themepunch.tools.min.js" %}"></script>
+    <script src="{% static "vendor/rs-plugin/js/jquery.themepunch.revolution.min.js" %}"></script>
+    
+    <!-- Theme Custom -->
+    <script src="{% static "js/custom.js" %}"></script>
+    
+    <!-- Theme Initialization Files -->
+    <script src="{% static "js/theme.init.js" %}"></script>
+    
+    <!-- Examples -->
+    <script src="{% static "js/examples/examples.portfolio.js" %}"></script>
+    
+    <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-12345678-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    -->
+    
+    </div>
+  </body>
+</html>
