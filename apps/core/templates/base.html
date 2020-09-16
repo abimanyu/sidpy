@@ -1,10 +1,10 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{{ SiteTitle }}</title>
+    <title>{% block title %}{% endblock  %} Desa {{conf_nama_desa}}</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     
     <link rel="shortcut icon" href="{% static "images/favicon.png" type="image/x-icon" %}" />
@@ -12,7 +12,7 @@
 
     <link href="x" rel="alternate" type="application/rss+xml" title="title" />
     <link href="x" rel="feed" type="application/rss+xml" title="title" />
-        
+
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
     <!-- Web Fonts  -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
@@ -35,7 +35,7 @@
     <!-- Skin CSS -->
     <link rel="stylesheet" href="{% static "css/skins.css" %}"> 
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    <!-- <link rel="stylesheet" href="{% static "css/custom.css" %}"> -->
     <!-- Head Libs -->
     <script src="{% static "vendor/modernizr/modernizr.min.js" %}"></script>
 
@@ -43,15 +43,7 @@
 
   </head>
 
-  <body class="loading-overlay-showing" data-plugin-page-transition data-loading-overlay data-plugin-options="{'hideDelay': 500}">
-
-    <div class="loading-overlay">
-			<div class="bounce-loader">
-				<div class="bounce1"></div>
-				<div class="bounce2"></div>
-				<div class="bounce3"></div>
-			</div>
-    </div>
+  <body>
     
     <div class="body">
       
@@ -79,7 +71,7 @@
                             <div class="header-column justify-content-end">
                                 <div class="header-row">
                                     <div class="header-nav-features header-nav-features-no-border">
-                                        <span class="badge badge-quaternary text-light badge-sm">kode desa</span>
+                                        <span class="badge badge-quaternary text-light badge-sm">{{conf_kode_desa}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +88,7 @@
                                             
                                             <div >
                                                 <p class="pb-0 line-height-50 text-2">
-                                                    <a href="/"><h2 class="gradient-text-color font-weight-bold m-0">title</h2></a>
+                                                    <a href="/"><h2 class="gradient-text-color font-weight-bold m-0">Desa {{conf_nama_desa}}</h2></a>
                                                 </p>
                                             </div>
                                         </div>
@@ -108,7 +100,7 @@
                             <div class="header-row">
                                 <div class="header-logo">
                                     <a href="/">
-                                        <img alt="Desa.id" width="100" height="100" data-sticky-width="60" data-sticky-height="60" src="{% static "images/logo.png" %}">
+                                        <img alt="{{conf_nama_desa}}" width="100" height="100" data-sticky-width="60" data-sticky-height="60" src="{% static "images/logo.png" %}">
                                     </a>
                                 </div>
                             </div>
@@ -120,8 +112,8 @@
                                         <div class="feature-box reverse-allres feature-box-style-2 align-items-center">
                                             <div class="feature-box-info">
                                                 <p class="pb-0 font-weight-semibold line-height-5 text-2">
-                                                    <h5 class="text-color-secondary">Kecamatan xx</h5>
-                                                    <span class="text-color-secondary">Kabupaten xx, Kalimantan Barat</span>
+                                                    <h5 class="text-color-secondary">Kecamatan {{conf_kec}}</h5>
+                                                    <span class="text-color-secondary">Kabupaten {{conf_kab}}, Kalimantan Barat</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -153,8 +145,11 @@
                                                                             <div class="col-lg-3">
                                                                                 <span class="dropdown-mega-sub-title">Profil</span>
                                                                                 <ul class="dropdown-mega-sub-nav">
+                                                                                {% for profil in menu_profil %}
+                                                                                    <li><a class="dropdown-item" href="{% url 'profil_detail' profil.kategori.slug profil.slug %}">{{ profil.title }}</a></li>
+                                                                                {% endfor %}
                                                                                     <li><a class="dropdown-item" href="/profil/umum/">Kondisi Umum Desa</a></li>
-                                                                                    <li><a class="dropdown-item" href="/profil/isu-strategis-desa/">Masalah &amp; Isu Strategis Desa </a></li>
+                                                                                    <li><a class="dropdown-item" href="/profil/isu-strategis-desa/">Masalah &amp; Isu Strategis Desa</a></li>
                                                                                     <li><a class="dropdown-item" href="/profil/kebijakan-pembangunan/">Kebijakan Pembangunan Desa</a></li>
                                                                                     <li><a class="dropdown-item" href="/profil/kebijakan-keuangan/">Kebijakan Keuangan Desa</a></li>
                                                                                     <li><a class="dropdown-item" href="/profil/sejarah/">Sejarah Desa</a></li>
@@ -176,10 +171,9 @@
                                                                                 </ul>
                                                                                 <span class="dropdown-mega-sub-title">Pengelola Informasi</span>
                                                                                 <ul class="dropdown-mega-sub-nav">
-                                                                                    <li><a class="dropdown-item" href="/ppid/sekretariat/">Sekretariat PPID</a></li>
-                                                                                    <li><a class="dropdown-item" href="#">Struktur Organisasi PPID</a></li>
-                                                                                    <li><a class="dropdown-item" href="/ppid/tupoksi/">Tupoksi PPID</a></li>	
-                                                                                    <li><a class="dropdown-item" href="#">SK PPID</a></li>
+                                                                                {% for profil in menu_profil_ppid %}
+                                                                                    <li><a class="dropdown-item" href="{% url 'profil_detail' profil.kategori.slug profil.slug %}">{{ profil.title }}</a></li>
+                                                                                {% endfor %}
                                                                                 </ul>
                                                                             </div>
                                                                             <div class="col-lg-3">
@@ -314,6 +308,26 @@
                                                                 </li>
                                                             </ul>
                                                         </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">
+                                                                Kategori
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                            {% for kategori in menu_kategori %} 
+                                                                <li><a class="dropdown-item" href="{% url 'kategori_detail' kategori.slug %}">{{ kategori.title }}</a></li>
+                                                            {% endfor %}
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">
+                                                                Berita
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                            {% for category in menu_category %}                                                             
+                                                                <li><a class="dropdown-item" href="{% url 'Category_Detail' category.slug %}">{{ category.title }}</a></li>
+                                                            {% endfor %}
+                                                            </ul>
+                                                        </li>
                                                         <!-- menu lagi //-->
                                                     </ul>
                                                 </nav>
@@ -404,9 +418,9 @@
                     <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
                         <nav id="sub-menu">
                             <ul>
-                                <li><i class="fas fa-angle-right"></i><a href="/faq/" class="ml-1 text-decoration-none"> FAQ's</a></li>
                                 <li><i class="fas fa-angle-right"></i><a href="/sitemap.xml" class="ml-1 text-decoration-none"> Sitemap</a></li>
                                 <li><i class="fas fa-angle-right"></i><a href="/dev/" class="ml-1 text-decoration-none"> Web Development</a></li>
+                                <li><i class="fas fa-angle-right"></i><a href="/landing/" class="ml-1 text-decoration-none"> Perangkat Desa</a></li>
                             </ul>
                         </nav>
                     </div>
