@@ -1,0 +1,338 @@
+{% extends 'qapuas/base.html' %}
+{% load static %}
+
+{% block title %}Berita Dashboards{% endblock %}
+{% block title_page %}Berita Dashboards{% endblock %}
+{% block profil_nav %}active{% endblock %}
+
+{% block Custom_CSS %}
+    <link rel="stylesheet" href="{% static "/admin/css/custom.css" %}">
+{% endblock  %}
+
+{% block content %}
+<!-- start: page -->
+<div class="row">
+    <div class="col-lg-6 col-xl-3">
+        <div class="col-xl-12">
+            <section class="card card-featured-left card-featured-primary mb-3">
+                <div class="card-body">
+                    <div class="widget-summary">
+                        <div class="widget-summary-col widget-summary-col-icon">
+                            <div class="summary-icon bg-primary">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                        </div>
+                        <div class="widget-summary-col">
+                            <div class="summary">
+                                <h4 class="title">Total Post</h4>
+                                <div class="info">
+                                    <strong class="amount">850</strong>
+                                </div>
+                            </div>
+                            <div class="summary-footer">
+                                <a class="text-muted text-uppercase" href="#">(Posts)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-xl-12">
+            <section class="card card-featured-left card-featured-tertiary mb-3">
+                <div class="card-body">
+                    <div class="widget-summary">
+                        <div class="widget-summary-col widget-summary-col-icon">
+                            <div class="summary-icon bg-tertiary">
+                                <i class="fas fa-list-alt"></i>
+                            </div>
+                        </div>
+                        <div class="widget-summary-col">
+                            <div class="summary">
+                                <h4 class="title">Kategori Berita</h4>
+                                <div class="info">
+                                    <strong class="amount">15</strong>
+                                </div>
+                            </div>
+                            <div class="summary-footer">
+                                <a class="text-muted text-uppercase" href="#">(Kategori)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-xl-12">
+            <section class="card card-featured-left card-featured-quaternary mb-3">
+                <div class="card-body">
+                    <div class="widget-summary">
+                        <div class="widget-summary-col widget-summary-col-icon">
+                            <div class="summary-icon bg-quaternary">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                        </div>
+                        <div class="widget-summary-col">
+                            <div class="summary">
+                                <h4 class="title">Tags Berita</h4>
+                                <div class="info">
+                                    <strong class="amount">30</strong>
+                                </div>
+                            </div>
+                            <div class="summary-footer">
+                                <a class="text-muted text-uppercase" href="#">(tags)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xl-3">
+        <section class="card card-transparent">
+            <header class="card-header">
+                <div class="card-actions">
+                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                    <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                </div>
+
+                <h2 class="card-title">My Stats</h2>
+            </header>
+            <div class="card-body">
+                <section class="card">
+                    <div class="card-body">
+                        <div class="small-chart float-right" id="sparklineBarDash"></div>
+                        <script type="text/javascript">
+                            var sparklineBarDashData = [5, 6, 7, 2, 0, 4 , 2, 4, 2, 0, 4 , 2, 4, 2, 0, 4];
+                        </script>
+                        <div class="h4 font-weight-bold mb-0">488</div>
+                        <p class="text-3 text-muted mb-0">Posting Rata-rata perbulan</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="card-body">
+                        <div class="circular-bar circular-bar-xs m-0 mt-1 mr-4 mb-0 float-right">
+                            <div class="circular-bar-chart" data-percent="45" data-plugin-options='{ "barColor": "#2baab1", "delay": 300, "size": 50, "lineWidth": 4 }'>
+                                <strong>Average</strong>
+                                <label><span class="percent">45</span>%</label>
+                            </div>
+                        </div>
+                        <div class="h4 font-weight-bold mb-0">12</div>
+                        <p class="text-3 text-muted mb-0">Komentar belum dibalas</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="card-body">
+                        <div class="small-chart float-right" id="sparklineLineDash"></div>
+                        <script type="text/javascript">
+                            var sparklineLineDashData = [15, 16, 17, 19, 10, 15, 13, 12, 12, 14, 16, 17];
+                        </script>
+                        <div class="h4 font-weight-bold mb-0">89</div>
+                        <p class="text-3 text-muted mb-0">Pending Tasks</p>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-12 col-xl-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="mt-0 mb-0">Berita Stats</h4>
+                <p class="mb-3">Stats Posting selama 7 bulan terakhir.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-12">
+                        <section class="card card-featured card-featured-primary mb-4">
+                            <div class="card-body">
+                                <div class="chart chart-sm" id="flotWidgetsSales1"></div>
+                                <script>
+
+                                    var flotWidgetsSales1Data = [{
+                                        data: [
+                                            ["Jan", 140],
+                                            ["Feb", 240],
+                                            ["Mar", 190],
+                                            ["Apr", 140],
+                                            ["May", 180],
+                                            ["Jun", 320],
+                                            ["Jul", 270],
+                                            ["Aug", 180]
+                                        ],
+                                        color: "#0088cc"
+                                    }];
+
+                                </script>
+                                <hr class="solid short mt-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="h4 font-weight-bold mb-0 mt-3">46.588</div>
+                                        <p class="text-3 text-muted mb-0">Total Hits</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="h4 font-weight-bold mb-0 mt-3">850</div>
+                                        <p class="text-3 text-muted mb-0">Berita Post</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="h4 font-weight-bold mb-0 mt-3">123</div>
+                                        <p class="text-3 text-muted mb-0">Komentar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-12">
+                        <section class="card mb-4">
+                            <div class="card-body bg-primary">
+
+                                <div class="chart chart-sm" id="morrisLine"></div>
+                                <script type="text/javascript">
+
+                                    var morrisLineData = [{
+                                        y: '2019',
+                                        a: 70
+                                    }, {
+                                        y: '2020',
+                                        a: 80
+                                    }, {
+                                        y: '2021',
+                                        a: 35
+                                    }, {
+                                        y: '2022',
+                                        a: 95
+                                    }, {
+                                        y: '2027',
+                                        a: 120
+                                    }, {
+                                        y: '2027',
+                                        a: 200
+                                    }];
+
+                                </script>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-12">
+                        <section class="card mb-4">
+                            <div class="card-body">
+                                <div class="small-chart float-right" id="sparklineBar"></div>
+                                <script type="text/javascript">
+                                    var sparklineBarData = [5, 6, 7, 2, 0, 4 , 2, 4, 2, 0, 4 , 2, 4, 2, 0, 4];
+                                </script>
+                                <div class="h4 font-weight-bold mb-0">488</div>
+                                <p class="text-3 text-muted mb-0">Posting Stats</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card card-modern card-modern-table-over-header">
+            <div class="card-header">
+                <div class="card-actions">
+                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                </div>
+                <h2 class="card-title">Daftar Berita</h2>
+            </div>
+            <div class="card-body">
+                <div class="datatables-header-footer-wrapper">
+                    <div class="datatable-header">
+                        <div class="row align-items-center mb-3">
+
+                            <div class="col-8 col-lg-auto ml-auto mb-3 mb-lg-0">
+                                <div class="d-flex align-items-lg-center flex-column flex-lg-row">
+                                    <label class="ws-nowrap mr-3 mb-0">Filter:</label>
+                                    <select class="form-control select-style-1 filter-by" name="filter-by">
+                                        <option value="all" selected>All</option>
+                                        <option value="1">ID</option>
+                                        <option value="2">Judul Berita</option>
+                                        <option value="3">Dibuat</option>
+                                        <option value="4">Kategori</option>
+                                        <option value="5">Status</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4 col-lg-auto pl-lg-1 mb-3 mb-lg-0">
+                                <div class="d-flex align-items-lg-center flex-column flex-lg-row">
+                                    <label class="ws-nowrap mr-3 mb-0">Show:</label>
+                                    <select class="form-control select-style-1 results-per-page" name="results-per-page">
+                                        <option value="12" selected>12</option>
+                                        <option value="24">24</option>
+                                        <option value="36">36</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-auto pl-lg-1">
+                                <div class="search search-style-1 search-style-1-lg mx-lg-auto">
+                                    <div class="input-group">
+                                        <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Cari..">
+                                        <span class="input-group-append">
+                                            <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-ecommerce-simple table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 640px;">
+                        <thead>
+                            <tr>
+                                <th width="3%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
+                                <th width="8%">ID</th>
+                                <th width="28%">Judul Berita</th>
+                                <th width="18%">Dibuat</th>
+                                <th width="18%">Kategori</th>
+                                <th width="15%">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for berita in list_berita %}
+                            <tr>
+                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
+                                <td><a href="{{ berita.slug }}"><strong>{{ berita.id }}</strong></a></td>
+                                <td><a href="edit?{{ berita.id }}"><strong>{{ berita.title }}</strong></a></td>
+                                <td>{{ berita.date_added }}</td>
+                                <td>{{ berita.category_id }}</td>
+                                <td><span class="ecommerce-status completed">published</span></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <hr class="solid mt-5 opacity-4">
+                    <div class="datatable-footer">
+                        <div class="row align-items-center justify-content-between mt-3">
+                            <div class="col-md-auto order-1 mb-3 mb-lg-0">
+                                <div class="d-flex align-items-stretch">
+                                    <select class="form-control select-style-1 bulk-action mr-3" name="bulk-action" style="min-width: 170px;">
+                                        <option value="" selected>Bulk Actions</option>
+                                        <option value="delete">Delete</option>
+                                    </select>
+                                    <a href="#" class="bulk-action-apply btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Apply</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-auto text-center order-3 order-lg-2">
+                                <div class="results-info-wrapper"></div>
+                            </div>
+                            <div class="col-lg-auto order-2 order-lg-3 mb-3 mb-lg-0">
+                                <div class="pagination-wrapper"></div>
+                            </div>
+                        </div>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end: page -->
+{% endblock content %}
