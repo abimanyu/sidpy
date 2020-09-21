@@ -1,4 +1,5 @@
 from django.urls import path
+# sitemap : https://github.com/agusmakmun/python.web.id/blob/master/app_blog/urls.py
 from apps.profil.views import profil_detail, kategori_detail
 
 urlpatterns = [
