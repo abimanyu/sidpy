@@ -2,21 +2,13 @@
 {% load static %}
 <html class="fixed has-top-menu sidebar-light {% block html_open %}{% endblock  %}">
 	<head>
-
-		<!-- Basic -->
 		<meta charset="UTF-8">
-
 		<title>{% block title %} {% endblock  %}</title>
 		<meta name="keywords" content="desa {{conf_nama_desa}}, {{conf_nama_desa}}, {{conf_kec}}, {{conf_kab}} " />
 		<meta name="description" content="Official Website Desa {{conf_nama_desa}}, Kecamatan {{conf_kec}} Kabupaten {{conf_kab}}, Kalimantan Barat">
 		<meta name="author" content="Desa {{conf_nama_desa}}">
-
-		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-		<!-- Web Fonts  -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,800,900|Shadows+Into+Light" rel="stylesheet" type="text/css">
-
 		<!-- Vendor CSS -->
 		<link rel="stylesheet" href="{% static "vendor/bootstrap/css/bootstrap.css" %}" />
 		<link rel="stylesheet" href="{% static "/admin/vendor/animate/animate.css" %}">
@@ -33,15 +25,11 @@
 
 		<link rel="stylesheet" href="{% static "/admin/css/theme.css" %}" />
 		<link rel="stylesheet" href="{% static "/admin/css/skins/default.css" %}" />
-
 		{% block Custom_CSS %}{% endblock %}
-
 		<script src="{% static "/admin/vendor/modernizr/modernizr.js" %}"></script>
-
 	</head>
 	<body>
 		<section class="body">
-
 			<!-- start: header -->
 			<header class="header header-nav-menu header-nav-top-line">
 				<div class="logo-container">
