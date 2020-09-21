@@ -3,17 +3,61 @@
 {% block title %}Official Website {% endblock  %}
 
 {% block content %}
-
-    {% include "widgets/slider.html" %}
+    <!-- {% include "widgets/slider.html" %} -->
 
     {% include "widgets/intro_covid.html" %}
 
-    {% include "widgets/berita_frontpages.html" %}
+<div class="container border-top-0">
 
+    <div class="row py-5">
+        {% include "widgets/frontpages_frontlink.html" %}
+             
+        {% include "widgets/berita_frontpages.html" %}
+    </div>
+
+    <!--
+    <div class="row pb-1 pt-2">
+        {% include "widgets/frontpages_berita.html" %}
+    </div>
+    -->
+    {% include "widgets/intro_produk.html" %}
+    <div class="row">
+        {% include "widgets/frontpages_post_testi.html" %}
+    </div>
+
+    <div class="row py-5">
+        <div class="col-lg-4 col-md-6">
+            List Halaman
+            <ul>
+            {% for profil in list_profil %}
+                <li><a href="{% url 'profil_detail' profil.kategori.slug profil.slug %}">{{ profil.title }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>        
+
+        <div class="col-lg-4 col-md-6">
+            List Berita
+            <ul>
+            {% for berita in List_Berita %}
+                <li><a href="{% url 'Berita_Detail' berita.category.slug berita.slug %}">{{ berita.title }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+
+        {% include "widgets/berita_frontpages.html" %}
+
+    </div>
+
+    
+</div>
+
+    
     {% include "widgets/statistik.html" %}
 
     <hr class="solid my-5">
 
     {% include "widgets/intro_produk.html" %}
+
+    {% include "widgets/frontpages_bannerfooter.html" %}
 
 {% endblock content %}

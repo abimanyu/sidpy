@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% block title %}{% endblock  %} Desa {{conf_nama_desa}}</title>
+    <title>{% block title %}{% endblock %} Desa {{conf_nama_desa}}</title>
     <meta name="keywords" content="{{conf_nama_desa}}, {{conf_kec}}, {{conf_kab}} " />
     <meta name="description" content="Official Website Desa {{conf_nama_desa}}, Kecamatan {{conf_kec}} Kab.{{conf_kab}}, Kalimantan Barat">
     <meta name="author" content="Desa {{conf_nama_desa}}">
@@ -13,13 +13,11 @@
     <link rel="apple-touch-icon" href="{% static "images/favicon.png" %}" />
     <link href="x" rel="alternate" type="application/rss+xml" title="title" />
     <link href="x" rel="feed" type="application/rss+xml" title="title" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
-    <!-- Web Fonts  -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "vendor/fontawesome-free/css/all.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/fontawesome-free-5.14.0-web/css/all.min.css" %}">
     <link rel="stylesheet" href="{% static "vendor/animate/animate.min.css" %}">
     <link rel="stylesheet" href="{% static "vendor/simple-line-icons/css/simple-line-icons.min.css" %}">
     <link rel="stylesheet" href="{% static "vendor/owl.carousel/assets/owl.carousel.min.css" %}">
@@ -39,15 +37,10 @@
     <!-- <link rel="stylesheet" href="{% static "css/custom.css" %}"> -->
     <!-- Head Libs -->
     <script src="{% static "vendor/modernizr/modernizr.min.js" %}"></script>
-
     <meta name="robots" CONTENT="index, follow">
-
   </head>
-
   <body>
-    
     <div class="body">
-      
         <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
             <div class="header-body border-top-0">
                 <div class="header-top">
@@ -414,7 +407,7 @@
                         </a>
                     </div>
                     <div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
-                        <p>&copy; title 2020 for Desa desa. All Rights Reserved.</p>
+                        <p>&copy;SID 2020 for Desa {{ conf_nama_desa }}. All Rights Reserved.</p>
                     </div>
                     <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
                         <nav id="sub-menu">
