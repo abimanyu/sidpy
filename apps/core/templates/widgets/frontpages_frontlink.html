@@ -1,0 +1,26 @@
+{% load static %}
+
+<div class="featured-boxes featured-boxes-flat col-lg-8">
+
+    <div class="row">
+    {% for cf in conf_frontlink %}
+        <div class="col-xl-3 col-lg-4 col-sm-4 col-6">
+            <div class="featured-box featured-box-primary featured-box-effect-2">
+                <div class="box-content box-content-border-bottom"><a href="{{ cf.desc }}" class="text-decoration-none">
+                    <i class="icon-featured far {{ cf.conf_val }}"></i>
+                    <h4 class="font-weight-bold text-4 mt-3">{{ cf.title }}</h4></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+        <div class="col-xl-3 col-lg-4 col-sm-4 col-6">
+            <div class="featured-box featured-box-quaternary featured-box-effect-2">
+                <div class="box-content box-content-border-bottom"><a href="/darurat/" class="text-decoration-none">
+                    <i class="icon-featured far fa-first-aid"></i>
+                    <h4 class="font-weight-normal text-4 mt-3">Telp <strong class="font-weight-bold">Darurat</strong></h4></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

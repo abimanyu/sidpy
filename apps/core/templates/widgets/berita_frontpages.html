@@ -1,24 +1,4 @@
 {% load static %}
-<div class="container container-lg border-top-0">
-    <div class="row py-5">
-        <div class="col-md-6 col-lg-4">
-            List Halaman
-            <ul>
-            {% for profil in list_profil %}
-                <li><a href="{% url 'profil_detail' profil.kategori.slug profil.slug %}">{{ profil.title }}</a></li>
-            {% endfor %}
-            </ul>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            List Berita
-            <ul>
-            {% for berita in List_Berita %}
-                <li><a href="{% url 'Berita_Detail' berita.category.slug berita.slug %}">{{ berita.title }}</a></li>
-            {% endfor %}
-            </ul>
-        </div>
-
         <div class="col-lg-4">
 
             <h3 class="font-weight-bold text-3 mt-4 mt-md-0">Aktifitas Desa</h3>
@@ -45,8 +25,7 @@
                             </div>
                         </article>
                     </a>
-                </div>
-                
+                </div>                
                 {% endfor %}
             </div>
 
@@ -61,7 +40,4 @@
                 <p><strong class="name"><a href="/profil/kepala-desa/" class="text-4 pb-2 pt-2 d-block text-dark">NamaKepalaDesa</a></strong></p>
                 <p>nama KepalaDesa</p>
             </div>
-
         </div>
-    </div>
-</div>
