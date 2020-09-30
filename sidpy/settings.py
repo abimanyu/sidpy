@@ -1,13 +1,7 @@
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+#ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = 'wa!^ehdwzn6!_@udp%3dz@u906o3p_-%qgq(esvq-8y2utsjmw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -43,45 +37,6 @@ if not DEBUG:
     ADMINS = [('Abimanyu Yusuf', EMAIL_HOST_USER), ]
     MANAGERS = ADMINS
 
-# Martor (Markdown Editor)
-MARTOR_THEME = 'bootstrap'
-MARTOR_ENABLE_CONFIGS = {
-    'imgur': 'true',        # to enable/disable imgur/custom uploader.
-    'jquery': 'true',       # to include/revoke jquery (require for admin default django)
-    'hljs': 'true',         # to enable/disable hljs highlighting in preview
-}
-# To show the toolbar buttons
-MARTOR_TOOLBAR_BUTTONS = [
-    'bold', 'italic', 'horizontal', 'heading', 'pre-code',
-    'blockquote', 'unordered-list', 'ordered-list',
-    'link', 'image-link', 'image-upload',
-    'direct-mention', 'toggle-maximize', 'help'
-]
-# To setup the martor editor with title label or not (default is False)
-MARTOR_ENABLE_LABEL = False
-# Markdownify
-MARTOR_MARKDOWNIFY_FUNCTION = 'martor.utils.markdownify' # default
-MARTOR_MARKDOWNIFY_URL = '/martor/markdownify/' # default
-# Markdown extensions (default)
-MARTOR_MARKDOWN_EXTENSIONS = [
-    'markdown.extensions.extra',
-    'markdown.extensions.nl2br',
-    'markdown.extensions.smarty',
-    'markdown.extensions.fenced_code',
-    # Custom markdown extensions.
-    'martor.extensions.urlize',
-    'martor.extensions.del_ins',      # ~~strikethrough~~ and ++underscores++
-    'martor.extensions.mention',      # to parse markdown mention
-    'martor.extensions.emoji',        # to parse markdown emoji
-    'martor.extensions.mdx_video',    # to parse embed/iframe video
-    'martor.extensions.escape_html',  # to handle the XSS vulnerabilities
-]
-# Markdown Extensions Configs
-MARTOR_MARKDOWN_EXTENSION_CONFIGS = {}
-# Markdown urls
-MARTOR_UPLOAD_URL = '/martor/uploader/' # default
-MARTOR_SEARCH_USERS_URL = '/martor/search-user/' # default
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -89,13 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-
+    'django.contrib.staticfiles', 
     'django.contrib.sitemaps',
     'django.contrib.sites',
 
     # 3d party apps
-    'martor', # markdown
+    'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
 
     # major apps
     'apps.core',
@@ -127,10 +83,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'apps.profil.context_processors.menu_profil',
-                'apps.profil.context_processors.menu_kategori',
+                
+                'apps.profil.context_processors.menu_pages',
+                'apps.profil.context_processors.menu_pages_category',
+                'apps.profil.context_processors.menu_pages_ppid',
+
                 'apps.berita.context_processors.menu_category',
-                'apps.profil.context_processors.menu_profil_ppid',
                 'apps.qapuas.context_processors.Qconf',
             ],
         },
@@ -138,7 +96,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'sidpy.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -153,10 +110,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DB_NAME',
-        'USER': 'DB_USER',
-        'PASSWORD': 'DB_PASSWORD',
-        'HOST': 'localhost',
+        'NAME': 'sidpy_0_1',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
@@ -194,6 +151,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "assets"),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, "CDN") # CDN or public_html/CDN
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'assets/media') # Development
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'CDN/media') # Production
+MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CKEDITOR_UPLOAD_PATH = 'images/'
