@@ -1,8 +1,9 @@
 from django.urls import path
-# sitemap : https://github.com/agusmakmun/python.web.id/blob/master/app_blog/urls.py
-from apps.profil.views import profil_detail, kategori_detail
+from . import views
 
 urlpatterns = [
-    path('p/<slug:slug>/', kategori_detail, name='kategori_detail'),
-    path('p/<slug:kategori_slug>/<slug:slug>/', profil_detail, name='profil_detail'),
+    path('p/<slug:slug>/', views.category_detail, name='category_detail'),
+    path('p/<slug:category_slug>/<slug:slug>/', views.pages_detail, name='pages_detail'),
+    # Dashboard
+    path('p/landing', views.qapuas_pages, name='qapuas_profil'),
 ]
