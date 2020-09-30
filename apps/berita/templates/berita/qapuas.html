@@ -1,8 +1,8 @@
 {% extends 'qapuas/base.html' %}
 {% load static %}
 
-{% block title %}Berita Dashboards{% endblock %}
-{% block title_page %}Berita Dashboards{% endblock %}
+{% block title %}Berita Dashboard{% endblock %}
+{% block title_page %}Berita Dashboard{% endblock %}
 {% block profil_nav %}active{% endblock %}
 
 {% block Custom_CSS %}
@@ -26,11 +26,11 @@
                             <div class="summary">
                                 <h4 class="title">Total Post</h4>
                                 <div class="info">
-                                    <strong class="amount">850</strong>
+                                    <strong class="amount">{{total_berita}}</strong>
                                 </div>
                             </div>
                             <div class="summary-footer">
-                                <a class="text-muted text-uppercase" href="#">(Posts)</a>
+                                <a class="text-muted text-uppercase" href="{% url 'addBerita' %}">(Berita)</a>
                             </div>
                         </div>
                     </div>
@@ -51,11 +51,11 @@
                             <div class="summary">
                                 <h4 class="title">Kategori Berita</h4>
                                 <div class="info">
-                                    <strong class="amount">15</strong>
+                                    <strong class="amount">{{total_category}}</strong>
                                 </div>
                             </div>
                             <div class="summary-footer">
-                                <a class="text-muted text-uppercase" href="#">(Kategori)</a>
+                                <a class="text-muted text-uppercase" href="{% url 'addCategory' %}">(Kategori)</a>
                             </div>
                         </div>
                     </div>
@@ -76,11 +76,11 @@
                             <div class="summary">
                                 <h4 class="title">Tags Berita</h4>
                                 <div class="info">
-                                    <strong class="amount">30</strong>
+                                    <strong class="amount">{{total_tag}}</strong>
                                 </div>
                             </div>
                             <div class="summary-footer">
-                                <a class="text-muted text-uppercase" href="#">(tags)</a>
+                                <a class="text-muted text-uppercase" href="{% url 'addTag' %}">(tags)</a>
                             </div>
                         </div>
                     </div>
@@ -89,6 +89,10 @@
         </div>
     </div>
     <div class="col-lg-6 col-xl-3">
+        <section class="card card-transparent">
+            <a href="{% url 'addBerita' %}" class="btn btn-lg btn-secondary">Tambah Berita</a>
+        </section>
+
         <section class="card card-transparent">
             <header class="card-header">
                 <div class="card-actions">
@@ -119,16 +123,6 @@
                         </div>
                         <div class="h4 font-weight-bold mb-0">12</div>
                         <p class="text-3 text-muted mb-0">Komentar belum dibalas</p>
-                    </div>
-                </section>
-                <section class="card">
-                    <div class="card-body">
-                        <div class="small-chart float-right" id="sparklineLineDash"></div>
-                        <script type="text/javascript">
-                            var sparklineLineDashData = [15, 16, 17, 19, 10, 15, 13, 12, 12, 14, 16, 17];
-                        </script>
-                        <div class="h4 font-weight-bold mb-0">89</div>
-                        <p class="text-3 text-muted mb-0">Pending Tasks</p>
                     </div>
                 </section>
             </div>
@@ -296,14 +290,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                        {% for berita in list_berita %}
+                        {% for berita in berita %}
                             <tr>
                                 <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td><a href="{{ berita.slug }}"><strong>{{ berita.id }}</strong></a></td>
-                                <td><a href="edit?{{ berita.id }}"><strong>{{ berita.title }}</strong></a></td>
+                                <td><a href="#{{ berita.slug }}"><strong>{{ berita.id }}</strong></a></td>
+                                <td><a href="{% url 'updateBerita' berita.id %}"><strong>{{ berita.title }}</strong></a></td>
                                 <td>{{ berita.date_added }}</td>
-                                <td>{{ berita.category_id }}</td>
-                                <td><span class="ecommerce-status completed">published</span></td>
+                                <td><a href="{% url 'updateCategory' berita.category.id %}">{{ berita.category }}</a></td>
+                                <td><span class="ecommerce-status completed">{{ berita.status }}</span></td>
                             </tr>
                         {% endfor %}
                         </tbody>
