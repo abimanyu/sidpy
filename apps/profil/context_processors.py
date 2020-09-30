@@ -1,13 +1,13 @@
-from .models import Kategori, Profil
+from .models import Category, Pages
 
-def menu_kategori(request):
-    kategori = Kategori.objects.all()
-    return {'menu_kategori': kategori}
+def menu_pages_category(request):
+    category_list = Category.objects.all()
+    return {'menu_pages_category': category_list}
 
-def menu_profil(request):
-    profil = Profil.objects.filter(kategori_id='1')
-    return {'menu_profil': profil}
+def menu_pages(request):
+    pages_umum = Pages.objects.filter(category_id='1')
+    return {'menu_pages_umum': pages_umum}
 
-def menu_profil_ppid(request):
-    menu = Profil.objects.filter(kategori_id='3')
-    return {'menu_profil_ppid': menu}
+def menu_pages_ppid(request):
+    ppid_list = Pages.objects.filter(category_id='3')
+    return {'menu_pages_ppid': ppid_list}

@@ -79,7 +79,6 @@
                                 <ul class="header-extra-info">
                                     <li class="m-0">
                                         <div class="feature-box reverse-allres feature-box-style-2 align-items-center">
-                                            
                                             <div >
                                                 <p class="pb-0 line-height-50 text-2">
                                                     <a href="/"><h2 class="gradient-text-color font-weight-bold m-0">Desa {{conf_nama_desa}}</h2></a>
@@ -139,8 +138,8 @@
                                                                             <div class="col-lg-3">
                                                                                 <span class="dropdown-mega-sub-title">Profil</span>
                                                                                 <ul class="dropdown-mega-sub-nav">
-                                                                                {% for profil in menu_profil %}
-                                                                                    <li><a class="dropdown-item" href="{% url 'profil_detail' profil.kategori.slug profil.slug %}">{{ profil.title }}</a></li>
+                                                                                {% for pages in menu_pages %}
+                                                                                    <li><a class="dropdown-item" href="{% url 'pages_detail' pages.category.slug pages.slug %}">{{ pages.title }}</a></li>
                                                                                 {% endfor %}
                                                                                     <li><a class="dropdown-item" href="/profil/umum/">Kondisi Umum Desa</a></li>
                                                                                     <li><a class="dropdown-item" href="/profil/isu-strategis-desa/">Masalah &amp; Isu Strategis Desa</a></li>
@@ -165,8 +164,8 @@
                                                                                 </ul>
                                                                                 <span class="dropdown-mega-sub-title">Pengelola Informasi</span>
                                                                                 <ul class="dropdown-mega-sub-nav">
-                                                                                {% for profil in menu_profil_ppid %}
-                                                                                    <li><a class="dropdown-item" href="{% url 'profil_detail' profil.kategori.slug profil.slug %}">{{ profil.title }}</a></li>
+                                                                                {% for pages in menu_pages_ppid %}
+                                                                                    <li><a class="dropdown-item" href="{% url 'pages_detail' pages.category.slug pages.slug %}">{{ pages.title }}</a></li>
                                                                                 {% endfor %}
                                                                                 </ul>
                                                                             </div>
@@ -307,8 +306,8 @@
                                                                 Kategori
                                                             </a>
                                                             <ul class="dropdown-menu">
-                                                            {% for kategori in menu_kategori %} 
-                                                                <li><a class="dropdown-item" href="{% url 'kategori_detail' kategori.slug %}">{{ kategori.title }}</a></li>
+                                                            {% for pages_category in menu_pages_category %} 
+                                                                <li><a class="dropdown-item" href="{% url 'category_detail' pages_category.slug %}">{{ pages_category.title }}</a></li>
                                                             {% endfor %}
                                                             </ul>
                                                         </li>
@@ -412,9 +411,9 @@
                     <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
                         <nav id="sub-menu">
                             <ul>
-                                <li><i class="fas fa-angle-right"></i><a href="/sitemap.xml" class="ml-1 text-decoration-none"> Sitemap</a></li>
-                                <li><i class="fas fa-angle-right"></i><a href="/dev/" class="ml-1 text-decoration-none"> Web Development</a></li>
-                                <li><i class="fas fa-angle-right"></i><a href="/landing/" class="ml-1 text-decoration-none"> Perangkat Desa</a></li>
+                                <li><i class="fas fa-angle-right"></i><a href="#/sitemap.xml" class="ml-1 text-decoration-none"> Sitemap</a></li>
+                                <li><i class="fas fa-angle-right"></i><a href="#/dev/" class="ml-1 text-decoration-none"> Web Development</a></li>
+                                <li><i class="fas fa-angle-right"></i><a href="{% url 'login' %}?" class="ml-1 text-decoration-none"> Perangkat Desa</a></li>
                             </ul>
                         </nav>
                     </div>
