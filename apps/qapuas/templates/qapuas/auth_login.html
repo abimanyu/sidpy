@@ -1,0 +1,16 @@
+{% extends 'qapuas/auth_base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Dashboard Login{% endblock  %}
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<div class="form-group mb-3">
+		{{ form|crispy }}
+	</div>
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<button type="submit" class="btn btn-primary mt-2">Sign In</button>
+		</div>
+	</div>
+</form>
+{% endblock content %}

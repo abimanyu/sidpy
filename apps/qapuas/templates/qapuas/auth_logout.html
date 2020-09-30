@@ -1,0 +1,14 @@
+{% extends 'qapuas/auth_base.html' %}
+{% block title %}Dashboard Logout{% endblock  %}
+{% block content %}
+<div class="form-group mb-3">
+    <div class="col-sm-12 text-center">
+        <h3>You have been logged out</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <a href="{% url 'login' %}?" class="btn btn-primary mt-2">Log In Again</a>
+    </div>
+</div>
+{% endblock content %}
