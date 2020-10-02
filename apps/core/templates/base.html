@@ -138,15 +138,9 @@
                                                                             <div class="col-lg-3">
                                                                                 <span class="dropdown-mega-sub-title">Profil</span>
                                                                                 <ul class="dropdown-mega-sub-nav">
-                                                                                {% for pages in menu_pages %}
-                                                                                    <li><a class="dropdown-item" href="{% url 'pages_detail' pages.category.slug pages.slug %}">{{ pages.title }}</a></li>
-                                                                                {% endfor %}
-                                                                                    <li><a class="dropdown-item" href="/profil/umum/">Kondisi Umum Desa</a></li>
-                                                                                    <li><a class="dropdown-item" href="/profil/isu-strategis-desa/">Masalah &amp; Isu Strategis Desa</a></li>
-                                                                                    <li><a class="dropdown-item" href="/profil/kebijakan-pembangunan/">Kebijakan Pembangunan Desa</a></li>
-                                                                                    <li><a class="dropdown-item" href="/profil/kebijakan-keuangan/">Kebijakan Keuangan Desa</a></li>
-                                                                                    <li><a class="dropdown-item" href="/profil/sejarah/">Sejarah Desa</a></li>
-                                                                                    <li><a class="dropdown-item" href="#">Peta Desa</a></li>
+                                                                                {% for page in menu_pages_umum %}
+                                                                                    <li><a class="dropdown-item" href="{% url 'pages_detail' page.category.slug page.slug %}">{{ page.title }}</a></li>
+                                                                                {% endfor page %}
                                                                                     <li><a class="dropdown-item" href="#">Berita Desa</a></li>
                                                                                     <li><a class="dropdown-item" href="#">Artikel Desa</a></li>
                                                                                     <li><a class="dropdown-item" href="#">Agenda Desa <span class="tip tip-red">baru</span></a></li>
@@ -166,7 +160,7 @@
                                                                                 <ul class="dropdown-mega-sub-nav">
                                                                                 {% for pages in menu_pages_ppid %}
                                                                                     <li><a class="dropdown-item" href="{% url 'pages_detail' pages.category.slug pages.slug %}">{{ pages.title }}</a></li>
-                                                                                {% endfor %}
+                                                                                {% endfor pages %}
                                                                                 </ul>
                                                                             </div>
                                                                             <div class="col-lg-3">
