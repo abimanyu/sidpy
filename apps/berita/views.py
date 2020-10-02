@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 
 from .models import Berita, Category, Tag
 from .forms import BeritaForm, CategoryForm, TagForm
@@ -37,8 +36,6 @@ def qapuas_berita (request):
     total_berita = berita.count()
     total_category = category.count()
     total_tag = tag.count()
-
-
 
     context = {
         'berita': berita,
@@ -122,7 +119,6 @@ def updateCategory(request, pk):
 
     context = {'form': form, 'nama_model':nama_model}
     return render(request, 'berita/q_add_modify.html', context)
-
 
 @login_required
 def deleteCategory(request, pk):
