@@ -6,7 +6,7 @@ from apps.qapuas.models import site_conf
 def frontpage(request):
     list_pages = Pages.objects.all()
     list_pages_category = Pages_Category.objects.all()
-    list_berita = Berita.objects.filter(featured=True)
+    list_berita = Berita.objects.all()
     list_category = Category.objects.all()
     list_frontlink = site_conf.objects.filter(conf='frontlink')
     context = {
