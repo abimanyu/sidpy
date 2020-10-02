@@ -29,11 +29,11 @@
         <div class="col-lg-4 col-md-6">
             List Halaman
             <ul>
-            {% for profil in list_profil %}
-                <li><a href="{% url 'profil_detail' profil.kategori.slug profil.slug %}">{{ profil.title }}</a></li>
-            {% endfor %}
+            {% for pages in list_pages %}
+                <li><a href="{% url 'pages_detail' pages.category.slug pages.slug %}">{{ pages.title }}</a></li>
+            {% endfor pages %}
             </ul>
-        </div>        
+        </div>
 
         <div class="col-lg-4 col-md-6">
             List Berita
