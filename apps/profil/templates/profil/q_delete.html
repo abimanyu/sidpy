@@ -1,6 +1,6 @@
 {% extends 'qapuas/base.html' %}
 {% load static %}
-{% block title %}Berita Dashboard{% endblock %}
+{% block title %}Pages Dashboard{% endblock %}
 {% block title_page %}{{nama_model}}{% endblock %}
 {% block profil_nav %}active{% endblock %}
 
@@ -35,7 +35,7 @@
                             
                         </div>
                         <div class="row text-center">                        
-                            <p class="text-center"><a href="{% url 'qapuas_berita' %}" class="btn btn-lg btn-primary">Batal</a> <input type="submit" value="{{nama_model}}" class="btn btn-lg btn-secondary"></p>
+                            <p class="text-center"><a href="{% url 'qapuas_pages' %}" class="btn btn-lg btn-primary">Batal</a> <input type="submit" value="{{nama_model}}" class="btn btn-lg btn-secondary"></p>
                         </div>
                     </form>
 

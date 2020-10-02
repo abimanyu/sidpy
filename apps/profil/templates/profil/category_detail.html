@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{ kategori.title }}{% endblock  %}
+{% block title %}{{ category.title }}{% endblock  %}
 {% block content %}
 
     <div role="main" class="main">
@@ -7,12 +7,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                        <h1 data-title-border>{{ kategori.title }}</h1>
+                        <h1 data-title-border>{{ category.title }}</h1>
                     </div>
                     <div class="col-md-4 order-1 order-md-2 align-self-center">
                         <ul class="breadcrumb d-block text-md-right breadcrumb-light">
                             <li><a href="/">Home</a></li>
-                            <li class="active">{{ kategori.title }}</li>
+                            <li class="active">{{ category.title }}</li>
                         </ul>
                     </div>
                 </div>
@@ -20,19 +20,17 @@
         </section>
 
         <div class="container">
-
             <div class="row">
                 <div class="col py-4">                
                     <p>
                         <ul>
-                        {% for profil in list_profil %}
-                            <li><a href="{% url 'profil_detail' profil.kategori.slug profil.slug %}">{{ profil.title }}</a></li>
+                        {% for page in list_pages %}
+                            <li><a href="{% url 'pages_detail' page.category.slug page.slug %}">{{ page.title }}</a></li>
                         {% endfor %}
                         </ul>
                     </p>
                 </div>
             </div>
-
         </div>
     </div>
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{ profil.title }}{% endblock %}
+{% block title %}{{ pages.title }}{% endblock %}
 {% block content %}
 
     <div role="main" class="main">
@@ -7,13 +7,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                        <h1 data-title-border>{{ profil.title }}</h1>
+                        <h1 data-title-border>{{ pages.title }}</h1>
                     </div>
                     <div class="col-md-4 order-1 order-md-2 align-self-center">
                         <ul class="breadcrumb d-block text-md-right breadcrumb-light">
                             <li><a href="/">Home</a></li>
-                            <li><a href="{% url 'kategori_detail' profil.kategori.slug %}">{{ profil.kategori.title }}</a></li>
-                            <li class="active">{{ profil.title }}</li>
+                            <li><a href="{% url 'category_detail' pages.category.slug %}">{{ pages.category }}</a></li>
+                            <li class="active">{{ pages.title }}</li>
                         </ul>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
 
             <div class="row">
                 <div class="col py-4">                
-                    <p>{{ profil.isi|safe }}</p>
+                    <p>{{ pages.isi|safe }}</p>
                 </div>
             </div>
 

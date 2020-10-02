@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                             <div class="summary-footer">
-                                <a class="text-muted text-uppercase" href="{% url 'addBerita' %}">(Berita)</a>
+                                <a class="text-muted text-uppercase" href="{% url 'addPages' %}">(Pages)</a>
                             </div>
                         </div>
                     </div>
@@ -66,11 +66,10 @@
                 </div>
             </section>
         </div>
-
     </div>
     <div class="col-lg-6 col-xl-3">
         <section class="card card-transparent">
-            <a href="{% url 'addBerita' %}" class="btn btn-lg btn-secondary">Tambah Berita</a>
+            <a href="{% url 'addPages' %}" class="btn btn-lg btn-secondary">Tambah Pages</a>
         </section>
 
         <section class="card card-transparent">
@@ -111,7 +110,7 @@
     <div class="col-lg-12 col-xl-6">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="mt-0 mb-0">Berita Stats</h4>
+                <h4 class="mt-0 mb-0">Posts Stats</h4>
                 <p class="mb-3">Stats Posting selama 7 bulan terakhir.</p>
             </div>
             <div class="col-md-6">
@@ -145,7 +144,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="h4 font-weight-bold mb-0 mt-3">850</div>
-                                        <p class="text-3 text-muted mb-0">Berita Post</p>
+                                        <p class="text-3 text-muted mb-0">Post</p>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="h4 font-weight-bold mb-0 mt-3">123</div>
@@ -215,7 +214,7 @@
                 <div class="card-actions">
                     <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                 </div>
-                <h2 class="card-title">Daftar Berita</h2>
+                <h2 class="card-title">Daftar Pages</h2>
             </div>
             <div class="card-body">
                 <div class="datatables-header-footer-wrapper">
@@ -263,37 +262,28 @@
                             <tr>
                                 <th width="3%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
                                 <th width="8%">ID</th>
-                                <th width="28%">Judul Berita</th>
+                                <th width="28%">Judul Post</th>
                                 <th width="18%">Dibuat</th>
                                 <th width="18%">Kategori</th>
                                 <th width="15%">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                        {% for berita in berita %}
+                        {% for p in pages %}
                             <tr>
                                 <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
-                                <td><a href="#{{ berita.slug }}"><strong>{{ berita.id }}</strong></a></td>
-                                <td><a href="{% url 'updateBerita' berita.id %}"><strong>{{ berita.title }}</strong></a></td>
-                                <td>{{ berita.date_added }}</td>
-                                <td><a href="{% url 'updateCategory' berita.category.id %}">{{ berita.category }}</a></td>
-                                <td><span class="ecommerce-status completed">{{ berita.status }}</span></td>
+                                <td><a href="#{{ p.slug }}"><strong>{{ p.id }}</strong></a></td>
+                                <td><a href="{% url 'updatePages' p.id %}"><strong>{{ p.title }}</strong></a></td>
+                                <td>{{ p.date_added }}</td>
+                                <td><a href="{% url 'updateCategory' p.category.id %}">{{ p.category }}</a></td>
+                                <td><span class="ecommerce-status completed">{{ p.status }}</span></td>
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
                     <hr class="solid mt-5 opacity-4">
                     <div class="datatable-footer">
-                        <div class="row align-items-center justify-content-between mt-3">
-                            <div class="col-md-auto order-1 mb-3 mb-lg-0">
-                                <div class="d-flex align-items-stretch">
-                                    <select class="form-control select-style-1 bulk-action mr-3" name="bulk-action" style="min-width: 170px;">
-                                        <option value="" selected>Bulk Actions</option>
-                                        <option value="delete">Delete</option>
-                                    </select>
-                                    <a href="#" class="bulk-action-apply btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Apply</a>
-                                </div>
-                            </div>
+                        <div class="row align-items-center justify-content-between mt-3">                            
                             <div class="col-lg-auto text-center order-3 order-lg-2">
                                 <div class="results-info-wrapper"></div>
                             </div>
