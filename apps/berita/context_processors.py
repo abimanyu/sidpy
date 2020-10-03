@@ -1,6 +1,6 @@
 from .models import Category
 
-def menu_category(request):
+def category_list(request):
     category = Category.objects.all()
 
-    return {'menu_category': category}
+    return {'category_list': category}
