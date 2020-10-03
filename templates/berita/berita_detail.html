@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-{% block title %}{{ Category.title }}{% endblock  %}
+
+{% block title %}{{ berita.title }} |{% endblock  %}
+
 {% block content %}
 
     <div role="main" class="main">
@@ -7,12 +9,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                        <h1 data-title-border>{{ Category.title }}</h1>
+                        <h1 data-title-border>{{ object.title }}</h1>
                     </div>
                     <div class="col-md-4 order-1 order-md-2 align-self-center">
                         <ul class="breadcrumb d-block text-md-right breadcrumb-light">
                             <li><a href="/">Home</a></li>
-                            <li class="active">{{ Category.title }}</li>
+                            <li><a href="{% url 'by_cat_list' berita.category.slug %}">{{ object.category.title }}</a></li>
+                            <li class="active">{{ object.title }}</li>
                         </ul>
                     </div>
                 </div>
@@ -23,13 +26,13 @@
 
             <div class="row">
                 <div class="col py-4">                
-                    <p>
-                        <ul>
-                        {% for berita in List_Berita %}
-                            <li><a href="{% url 'Berita_Detail' berita.category.slug berita.slug %}">{{ berita.title }}</a></li>
-                        {% endfor %}
-                        </ul>
-                    </p>
+                    <img class="thumbnail" src="">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col py-4">                
+                    <p>{{ object.isi|safe }}</p>
                 </div>
             </div>
 

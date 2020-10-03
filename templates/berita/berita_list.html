@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}{{page_title}}{% endblock  %}
+{% block content %}
+
+    <div role="main" class="main">
+        <section class="page-header page-header-modern bg-color-primary page-header-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                        <h1 data-title-border>{{page_title}}</h1>
+                    </div>
+                    <div class="col-md-4 order-1 order-md-2 align-self-center">
+                        <ul class="breadcrumb d-block text-md-right breadcrumb-light">
+                            <li><a href="/">Home</a></li>
+                            <li class="active">{{page_title}} <span class="tip">{{page_obj.paginator.count}} posts</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="row">
+                    {% for berita in object_list %}
+                        <div class="col-lg-12 mb-6 mb-lg-0">
+                            <article class="post post-medium">
+                                <div class="post-content">
+                                    <h4 class="font-weight-semibold mb-1"><a href="{% url 'Berita_Detail' berita.category.slug berita.slug %}" class="text-decoration-none">{{ berita.title|safe }}</a></h4>
+                                    <p>{{ berita.isi|truncatechars:250|safe }}</p>
+                                    <div class="post-meta">
+                                        <span><i class="far fa-calendar-alt"></i> {{ berita.date_added|date:"d F, Y" }} </span>
+                                        <span><i class="far fa-folder"></i> <a href="{%url 'by_cat_list' berita.category.slug %}">{{ berita.category }}</a> </span>
+                                        <span><i class="far fa-user"></i> By <a href="{%url 'by_user_list' berita.author %}">{{ berita.author }}</a> </span>
+                                        <span class="d-block mt-2"><a href="{% url 'Berita_Detail' berita.category.slug berita.slug %}" class="btn btn-xs btn-light text-1 text-uppercase">Selengkapnya</a></span>
+                                    </div>
+                                </div>
+                            </article>
+                            <hr class="solid my-4">
+                        </div>
+                    {% endfor %}
+                    </div>
+
+                    {%if is_paginated %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="pagination text-right">
+                            {%if page_obj.has_previous%}
+                                <li class="page-item"><a class="page-link" href="?page={{page_obj.previous_page_number}}"><i class="fas fa-angle-left"></i></a></li>
+                            {%endif%}
+                            {%for num in page_obj.paginator.page_range%}
+                                {%if page_obj.number == num%}
+                                <li class="page-item active"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+                                {%elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'%}
+                                <li class="page-item"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+                                {%endif%}
+                            {%endfor%}
+                            {%if page_obj.has_next%}
+                                <a class="page-link" href="?page={{page_obj.next_page_number}}"><i class="fas fa-angle-right"></i></a>
+                            {%endif%}
+                            </ul>
+                        </div>
+                    </div>
+                    {%endif%}
+
+                </div>
+
+                <div class="col-lg-3 mt-4 mt-lg-0">
+                    {% include "berita/sidebar.html" %}
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    {% include "widgets/intro_produk.html" %}
+
+{% endblock content %}

@@ -295,23 +295,14 @@
                                                                 </li>
                                                             </ul>
                                                         </li>
-                                                        <li class="dropdown">
-                                                            <a class="dropdown-item dropdown-toggle" href="#">
-                                                                Kategori
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                            {% for pages_category in menu_pages_category %} 
-                                                                <li><a class="dropdown-item" href="{% url 'category_detail' pages_category.slug %}">{{ pages_category.title }}</a></li>
-                                                            {% endfor %}
-                                                            </ul>
-                                                        </li>
+                                                        
                                                         <li class="dropdown">
                                                             <a class="dropdown-item dropdown-toggle" href="#">
                                                                 Berita
                                                             </a>
                                                             <ul class="dropdown-menu">
                                                             {% for category in menu_category %}                                                             
-                                                                <li><a class="dropdown-item" href="{% url 'Category_Detail' category.slug %}">{{ category.title }}</a></li>
+                                                                <li><a class="dropdown-item" href="{% url 'by_cat_list' category.slug %}">{{ category.title }}</a></li>
                                                             {% endfor %}
                                                             </ul>
                                                         </li>

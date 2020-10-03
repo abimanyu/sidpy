@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}{{ Category.title }}{% endblock  %}
+{% block content %}
+
+    <div role="main" class="main">
+        <section class="page-header page-header-modern bg-color-primary page-header-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                        <h1 data-title-border>Berita {{ Category.title }}</h1>
+                    </div>
+                    <div class="col-md-4 order-1 order-md-2 align-self-center">
+                        <ul class="breadcrumb d-block text-md-right breadcrumb-light">
+                            <li><a href="/">Home</a></li>
+                            <li class="active">{{ Category.title }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-9">
+                {% for berita in List_Berita %}
+                    <div class="col mb-6 mb-lg-0">
+                        <article class="post post-medium">
+                            <div class="post-content">
+                                <h4 class="font-weight-semibold mb-1"><a href="{% url 'Berita_Detail' berita.category.slug berita.slug %}" class="text-decoration-none">{{ berita.title|safe }}</a></h4>
+                                <p>{{ berita.isi|truncatechars:250|safe }}</p>
+                                <div class="post-meta">
+                                    <span><i class="far fa-calendar-alt"></i> {{ berita.date_added }} </span>
+                                    <span><i class="far fa-folder"></i> <a href="#">{{ berita.category }}</a> </span>
+                                    <span><i class="far fa-user"></i> By <a href="#">{{ berita.author }}</a> </span>
+                                    <span class="d-block mt-2"><a href="{% url 'Berita_Detail' berita.category.slug berita.slug %}" class="btn btn-xs btn-light text-1 text-uppercase">Selengkapnya</a></span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <hr class="solid my-4">
+                {% endfor %}
+                </div>
+
+                <div class="col-lg-3 mt-4 mt-lg-0">
+                    {% include "berita/sidebar.html" %}
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    {% include "widgets/intro_produk.html" %}
+
+{% endblock content %}
