@@ -75,7 +75,7 @@ ROOT_URLCONF = 'sidpy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,7 +88,7 @@ TEMPLATES = [
                 'apps.profil.context_processors.menu_pages_category',
                 'apps.profil.context_processors.menu_pages_ppid',
 
-                'apps.berita.context_processors.menu_category',
+                'apps.berita.context_processors.category_list',
                 'apps.qapuas.context_processors.Qconf',
             ],
         },
@@ -145,10 +145,6 @@ TIME_ZONE = 'Asia/Jakarta'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets"),
