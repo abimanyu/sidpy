@@ -1,8 +1,50 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.views.generic import ListView, DetailView
 
 from .models import Berita, Category, Tag
 from .forms import BeritaForm, CategoryForm, TagForm
+
+
+class BeritaListView(ListView):
+    model = Berita
+    template_name = "berita/berita_list.html"
+    ordering = ['-date_added']    
+    extra_context = {
+        'page_title':'Berita',
+    }
+
+    def get_context_data(self, *args, **kwargs):
+        self.kwargs.update(self.extra_context)
+        kwargs = self.kwargs
+        return super().get_context_data(*args, **kwargs)
+
+
+class CategoryListView(ListView):
+    model = Berita
+    template_name = "berita/by_cat_list.html"
+    extra_context = {
+        'page_title':'Berita',
+    }
+
+    def get_queryset(self):
+        category = get_object_or_404(Category, slug=self.kwargs.get('slug'))
+        return Berita.objects.filter(category=category).order_by('-date_added')
+
+
+class UserListView(ListView):
+    model = Berita
+    template_name = "berita/by_user_list.html"
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Berita.objects.filter(author=user).order_by('-date_added')
+
+
+class BeritaDetailView(DetailView):
+    model = Berita
+    template_name = "berita/berita_detail.html"
 
 def Berita_Detail (request, category_slug, slug):
     berita = get_object_or_404(Berita, slug=slug)
@@ -23,6 +65,7 @@ def Category_Detail (request, slug):
     }
 
     return render(request, 'berita/category_detail.html', context)
+
 
 # ___________________________________
 # DASHBOARD
