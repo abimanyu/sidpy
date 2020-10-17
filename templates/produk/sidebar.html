@@ -1,0 +1,15 @@
+{% load static %}
+<aside class="sidebar" id="sidebar">
+    <h5 class="font-weight-bold">Kategori Produksi</h5>
+    <ul class="nav nav-list flex-column mb-5">
+    {% for cat in category_list_produk %} 
+        {%if cat.slug == view.kwargs.category_slug%}
+        <li class="nav-item"><a class="nav-link active" href="{% url 'produk_by_cat_list' cat.slug %}">{{ cat.title }}</a></li>
+        {%elif cat.slug == view.kwargs.slug%}
+        <li class="nav-item"><a class="nav-link active" href="{% url 'produk_by_cat_list' cat.slug %}">{{ cat.title }}</a></li>
+        {%else%}
+        <li class="nav-item"><a class="nav-link" href="{% url 'produk_by_cat_list' cat.slug %}">{{ cat.title }}</a></li>
+        {%endif%}
+    {% endfor %}
+    </ul>
+</aside>

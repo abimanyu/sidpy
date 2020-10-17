@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ object.title }} |{% endblock  %}
+
+{% block content %}
+    <div role="main" class="main">
+        <section class="page-header page-header-modern bg-color-light-scale-1 page-header-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                        <h1 class="text-dark">Produk Unggulan <strong>Desa</strong></h1>
+                    </div>                    
+                    <div class="col-md-4 order-1 order-md-2 align-self-center">
+                        <ul class="breadcrumb d-block text-md-right">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="{%url 'produk_list' %}">Produk</a></li>
+                            <li class="active"><a href="{% url 'produk_by_cat_list' object.category.slug %}">{{ object.category }}</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col">
+                            <div class="blog-posts single-post">
+                            
+                                <article class="post post-large blog-single-post border-0 m-0 p-0">
+                                    {%if object.thumbnail %}
+                                    <div class="post-image ml-0">
+                                        <a href="{{object.thumbnail.url}}">
+                                            <img src="{{object.thumbnail.url}}" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+                                        </a>
+                                    </div>
+                                    {% endif %}
+                            
+                                    <div class="post-content ml-0">
+                            
+                                        <h2 class="font-weight-bold text-primary">{{object.title|safe}}</h2>
+                            
+                                        <div class="post-meta">
+                                            <span><i class="far fa-folder"></i> <a href="{% url 'produk_by_cat_list' object.category.slug %}">{{ object.category }}</a> </span>
+                                        </div>
+
+                                        {{ object.isi|safe }}
+
+                                    </div>
+                                </article>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 mt-4 mt-lg-0">
+                    {% include "produk/sidebar.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "widgets/intro_produk.html" %}
+
+{% endblock content %}

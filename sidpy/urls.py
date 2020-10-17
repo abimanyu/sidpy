@@ -10,7 +10,8 @@ urlpatterns = [
 
     path('', include('apps.core.urls')),
     path('', include('apps.profil.urls')),
-    path('', include('apps.berita.urls')),    
+    path('', include('apps.berita.urls')),
+    path('', include('apps.produk.urls')),
 
     path('dashboard/', dashboard, name='dashboard'),
     path('landing', auth_views.LoginView.as_view(template_name='qapuas/auth_login.html'), name='login'),

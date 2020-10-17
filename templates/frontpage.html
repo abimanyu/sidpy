@@ -30,7 +30,7 @@
             List Halaman
             <ul>
             {% for pages in list_pages %}
-                <li><a href="{% url 'pages_detail' pages.category.slug pages.slug %}">{{ pages.title }}</a></li>
+                <li><a href="{% url 'u_pages_detail' pages.category.slug pages.slug %}">{{ pages.title }}</a></li>
             {% endfor pages %}
             </ul>
         </div>

@@ -1,0 +1,264 @@
+{% extends 'qapuas/base.html' %}
+{% load static %}
+
+{% block title %}Produk Dashboard{% endblock %}
+{% block title_page %}Produk Dashboard{% endblock %}
+{% block profil_nav %}active{% endblock %}
+
+{% block Custom_CSS %}
+    <link rel="stylesheet" href="{% static "/admin/css/custom.css" %}">
+{% endblock  %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6 col-xl-3">
+        <div class="col-xl-12">
+            <section class="card card-featured-left card-featured-primary mb-3">
+                <div class="card-body">
+                    <div class="widget-summary">
+                        <div class="widget-summary-col widget-summary-col-icon">
+                            <div class="summary-icon bg-primary">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                        </div>
+                        <div class="widget-summary-col">
+                            <div class="summary">
+                                <h4 class="title">Total Produk Item</h4>
+                                <div class="info">
+                                    <strong class="amount">{{total_item}}</strong>
+                                </div>
+                            </div>
+                            <div class="summary-footer">
+                                <a class="text-muted text-uppercase" href="{% url 'addProduk' %}">(Produk)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-xl-12">
+            <section class="card card-featured-left card-featured-tertiary mb-3">
+                <div class="card-body">
+                    <div class="widget-summary">
+                        <div class="widget-summary-col widget-summary-col-icon">
+                            <div class="summary-icon bg-tertiary">
+                                <i class="fas fa-list-alt"></i>
+                            </div>
+                        </div>
+                        <div class="widget-summary-col">
+                            <div class="summary">
+                                <h4 class="title">Kategori Produk</h4>
+                                <div class="info">
+                                    <strong class="amount">{{total_category}}</strong>
+                                </div>
+                            </div>
+                            <div class="summary-footer">
+                                <a class="text-muted text-uppercase" href="{% url 'addCategory_produk' %}">(Kategori)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xl-3">
+        <section class="card card-transparent">
+            <a href="{% url 'addProduk' %}" class="btn btn-lg btn-secondary">Tambah Produk</a>
+        </section>
+
+        <section class="card card-transparent">
+            <a href="{% url 'addCategory_produk' %}" class="btn btn-lg btn-primary">Tambah Kategori Produk</a>
+        </section>
+    </div>
+    <div class="col-lg-12 col-xl-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="mt-0 mb-0">Produk Stats</h4>
+                <p class="mb-3">Stats Posting selama 7 bulan terakhir.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-12">
+                        <section class="card card-featured card-featured-primary mb-4">
+                            <div class="card-body">
+                                <div class="chart chart-sm" id="flotWidgetsSales1"></div>
+                                <script>
+
+                                    var flotWidgetsSales1Data = [{
+                                        data: [
+                                            ["Jan", 140],
+                                            ["Feb", 240],
+                                            ["Mar", 190],
+                                            ["Apr", 140],
+                                            ["May", 180],
+                                            ["Jun", 320],
+                                            ["Jul", 270],
+                                            ["Aug", 180]
+                                        ],
+                                        color: "#0088cc"
+                                    }];
+
+                                </script>
+                                <hr class="solid short mt-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="h4 font-weight-bold mb-0 mt-3">46.588</div>
+                                        <p class="text-3 text-muted mb-0">Total Hits</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="h4 font-weight-bold mb-0 mt-3">850</div>
+                                        <p class="text-3 text-muted mb-0">Produk Post</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="h4 font-weight-bold mb-0 mt-3">123</div>
+                                        <p class="text-3 text-muted mb-0">Komentar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-12">
+                        <section class="card mb-4">
+                            <div class="card-body bg-primary">
+
+                                <div class="chart chart-sm" id="morrisLine"></div>
+                                <script type="text/javascript">
+
+                                    var morrisLineData = [{
+                                        y: '2019',
+                                        a: 70
+                                    }, {
+                                        y: '2020',
+                                        a: 80
+                                    }, {
+                                        y: '2021',
+                                        a: 35
+                                    }, {
+                                        y: '2022',
+                                        a: 95
+                                    }, {
+                                        y: '2027',
+                                        a: 120
+                                    }, {
+                                        y: '2027',
+                                        a: 200
+                                    }];
+
+                                </script>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-12">
+                        <section class="card mb-4">
+                            <div class="card-body">
+                                <div class="small-chart float-right" id="sparklineBar"></div>
+                                <script type="text/javascript">
+                                    var sparklineBarData = [5, 6, 7, 2, 0, 4 , 2, 4, 2, 0, 4 , 2, 4, 2, 0, 4];
+                                </script>
+                                <div class="h4 font-weight-bold mb-0">488</div>
+                                <p class="text-3 text-muted mb-0">Posting Stats</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card card-modern card-modern-table-over-header">
+            <div class="card-header">
+                <div class="card-actions">
+                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                </div>
+                <h2 class="card-title">Daftar Produk</h2>
+            </div>
+            <div class="card-body">
+                <div class="datatables-header-footer-wrapper">
+                    <div class="datatable-header">
+                        <div class="row align-items-center mb-3">
+
+                            <div class="col-8 col-lg-auto ml-auto mb-3 mb-lg-0">
+                                <div class="d-flex align-items-lg-center flex-column flex-lg-row">
+                                    <label class="ws-nowrap mr-3 mb-0">Filter:</label>
+                                    <select class="form-control select-style-1 filter-by" name="filter-by">
+                                        <option value="all" selected>All</option>
+                                        <option value="1">ID</option>
+                                        <option value="2">Judul Produk</option>
+                                        <option value="3">Dibuat</option>
+                                        <option value="4">Kategori</option>
+                                        <option value="5">Status</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4 col-lg-auto pl-lg-1 mb-3 mb-lg-0">
+                                <div class="d-flex align-items-lg-center flex-column flex-lg-row">
+                                    <label class="ws-nowrap mr-3 mb-0">Show:</label>
+                                    <select class="form-control select-style-1 results-per-page" name="results-per-page">
+                                        <option value="12" selected>12</option>
+                                        <option value="24">24</option>
+                                        <option value="36">36</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-auto pl-lg-1">
+                                <div class="search search-style-1 search-style-1-lg mx-lg-auto">
+                                    <div class="input-group">
+                                        <input type="text" class="search-term form-control" name="search-term" id="search-term" placeholder="Cari..">
+                                        <span class="input-group-append">
+                                            <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-ecommerce-simple table-striped mb-0" id="datatable-ecommerce-list" style="min-width: 640px;">
+                        <thead>
+                            <tr>
+                                <th width="3%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
+                                <th width="8%">ID</th>
+                                <th width="28%">Judul Produk</th>
+                                <th width="18%">Kategori</th>
+                                <th width="15%">Status</th>
+                                <th width="18%">Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in produk %}
+                            <tr>
+                                <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
+                                <td><a href="#{{ item.slug }}"><strong>{{ item.id }}</strong></a></td>
+                                <td><a href="{% url 'updateProduk' item.id %}"><strong>{{ item.title }}</strong></a></td>
+                                <td><a href="{% url 'updateCategory_produk' item.category.id %}">{{ item.category }}</a></td>
+                                <td><span class="ecommerce-status completed">{{ item.status }}</span></td>
+                                <td>{{ item.updated_at|date:"d M, Y" }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <hr class="solid mt-5 opacity-4">
+                    <div class="datatable-footer">
+                        <div class="row align-items-center justify-content-between mt-3">
+                            <div class="col-lg-auto text-center order-3 order-lg-2">
+                                <div class="results-info-wrapper"></div>
+                            </div>
+                            <div class="col-lg-auto order-2 order-lg-3 mb-3 mb-lg-0">
+                                <div class="pagination-wrapper"></div>
+                            </div>
+                        </div>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

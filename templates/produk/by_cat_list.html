@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block title %}Produk {{ view.kwargs.slug }}{% endblock  %}
+{% block content %}
+
+    <div role="main" class="main">
+        <section class="page-header page-header-modern bg-color-primary page-header-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                        <h1 data-title-border>{{page_title}} <strong>{{view.kwargs.slug}}</strong></h1>
+                    </div>
+                    <div class="col-md-4 order-1 order-md-2 align-self-center">
+                        <ul class="breadcrumb d-block text-md-right breadcrumb-light">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="{%url 'produk_list' %}">Produk</a></li>
+                            <li class="active">{{view.kwargs.slug}} <span class="tip">{{page_obj.paginator.count}} items</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col">
+                    <div class="blog-posts single-post">
+                        <p>Kementerian Desa, Pembangunan Daerah Tertinggal, dan Transmigrasi mengungkapkan salah satu Rencana Pembangunan Jangka Menengan Nasional (RPJMN) 2015 – 2022 ialah mengurangi jumlah desa tertinggal sampai 5000 desa dan meningkatkan jumlah desa sedikitnya 2000 desa.</p>
+                        <p>Untuk mencapai target tersebut, pembangunan desa dilakukan secara menyeluruh dan sistematis. Salah satu cara percepatan pembangunan desa dapat dilakukan dengan pengembangan pertanian melalui Produk Unggulan Desa (Prudes) dan Produk Unggulan Kawasan Pedesaan (Prukades). Prudes dan Prukades bersinergi dengan embung desa, badan usaha milik desa (BUMDes), dan Sarana Olahraga Desa.</p>
+                        <p>Peningkatan skala produksi dan skala ekonomi Prudes dan Prukades diharapkan dapat meningkatkan pendapatan masayarakat desa. Keberadaan Prudes dan Prukades ini harus didukung oleh keberadaan BUMDes untuk menyediakan kebutuhan sebelum dan sesudah panen.</p>
+                        <p>Beberapa manfaat yang dapat dirasakan dari program Prudes dan Prukades, yakni pengelolaan lebih efisien, menarik investor, menekan biaya produksi, menjaga harga tetap stabil, membuka kesempatan kerja, dan mendorong partisipasi masyarakat desa.</p>
+                        <div class="heading heading-border heading-middle-border heading-middle-border-center"><h3 class=font-weight-normal>Produk {{view.kwargs.slug}}</h3></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="row">
+                        {% for item in object_list %}
+
+                        {%if item.thumbnail %}
+                        <div class="col-lg-12 mb-6 mb-lg-0">
+							<div class="blog-posts">
+
+								<article class="post post-medium">
+									<div class="row mb-3">
+										<div class="col-lg-5">
+											<div class="post-image">
+												<a href="{% url 'Produk_Detail' item.category.slug item.slug %}">
+													<img src="{{item.thumbnail.url}}" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+												</a>
+											</div>
+										</div>
+										<div class="col-lg-7">
+											<div class="post-content">
+                                                <h4 class="font-weight-semibold mb-1"><a href="{% url 'Produk_Detail' item.category.slug item.slug %}" class="text-decoration-none">{{ item.title|safe }}</a></h4>
+                                                <p>{{ item.isi|truncatechars:250|safe }}</p>
+                                                <div class="post-meta">
+                                                    <span><i class="far fa-calendar-alt"></i> updated: {{ item.updated_at|date:"d F, Y" }} </span>
+                                                    <span><i class="far fa-folder"></i> <a href="{%url 'by_cat_list' item.category.slug %}">{{ item.category }}</a> </span>
+                                                    <span class="d-block float-sm-right mt-2 mt-sm-0"><a href="{% url 'Produk_Detail' item.category.slug item.slug %}" class="btn btn-xs btn-light text-1 text-uppercase">Lihat Produk</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+                        {% else %}
+                        <div class="col-lg-12 mb-6 mb-lg-0">
+                            <article class="post post-medium">
+                                <div class="post-content">
+                                    <h4 class="font-weight-semibold mb-1"><a href="{% url 'Produk_Detail' item.category.slug item.slug %}" class="text-decoration-none">{{ item.title|safe }}</a></h4>
+                                    <p>{{ item.isi|truncatechars:250|safe }}</p>
+                                    <div class="post-meta">
+                                        <span><i class="far fa-calendar-alt"></i> updated: {{ item.updated_at|date:"d F, Y" }} </span>
+                                        <span><i class="far fa-folder"></i> <a href="{%url 'by_cat_list' item.category.slug %}">{{ item.category }}</a> </span>
+                                        <span class="d-block float-sm-right mt-2 mt-sm-0"><a href="{% url 'Produk_Detail' item.category.slug item.slug %}" class="btn btn-xs btn-light text-1 text-uppercase">Lihat Produk</a></span>
+                                    </div>
+                                </div>
+                            </article>
+                            <hr class="solid my-4">
+                        </div>
+                        {% endif %}
+                                    
+                    {% endfor %}
+                    </div>
+
+                    {%if is_paginated %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="pagination text-right">
+                            {%if page_obj.has_previous%}
+                                <li class="page-item"><a class="page-link" href="?page={{page_obj.previous_page_number}}"><i class="fas fa-angle-left"></i></a></li>
+                            {%endif%}
+                            {%for num in page_obj.paginator.page_range%}
+                                {%if page_obj.number == num%}
+                                <li class="page-item active"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+                                {%elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'%}
+                                <li class="page-item"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+                                {%endif%}
+                            {%endfor%}
+                            {%if page_obj.has_next%}
+                                <a class="page-link" href="?page={{page_obj.next_page_number}}"><i class="fas fa-angle-right"></i></a>
+                            {%endif%}
+                            </ul>
+                        </div>
+                    </div>
+                    {%endif%}
+
+                </div>
+
+                <div class="col-lg-3 mt-4 mt-lg-0">
+                    {% include "produk/sidebar.html" %}
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    {% include "widgets/intro_produk.html" %}
+
+{% endblock content %}

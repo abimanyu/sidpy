@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.profil',
     'apps.berita',
+    'apps.produk',
     'apps.qapuas'
 ]
 
@@ -86,9 +87,11 @@ TEMPLATES = [
                 
                 'apps.profil.context_processors.menu_pages',
                 'apps.profil.context_processors.menu_pages_category',
+                'apps.profil.context_processors.menu_pages_pemdes',
                 'apps.profil.context_processors.menu_pages_ppid',
 
                 'apps.berita.context_processors.category_list',
+                'apps.produk.context_processors.category_list_produk',
                 'apps.qapuas.context_processors.Qconf',
             ],
         },
