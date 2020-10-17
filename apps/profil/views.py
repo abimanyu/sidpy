@@ -1,8 +1,34 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.views.generic import ListView, DetailView
 
 from .models import Pages, Category
 from .forms import PagesForm
+
+
+class CategoryPagesListView(ListView):
+    model = Pages
+    paginate_by = 10
+    template_name = "profil/pages_list.html"
+    extra_context = {
+        'page_title':'Profil',
+    }
+
+    def get_queryset(self):
+        category = get_object_or_404(Category, slug=self.kwargs.get('slug'))
+        return Pages.objects.filter(category=category).order_by('ordering')
+
+
+class PagesDetailView(DetailView):
+    model = Pages
+    template_name = "profil/pages_detail.html"
+
+
+def pages_list_by_category(request,category_id):
+    page_list = Pages.objects.filter(category_id='1').order_by('ordering')
+    return {'pages_list_by_category': page_list}
+
 
 def pages_detail (request, category_slug, slug):
     pages = get_object_or_404(Pages, slug=slug)
@@ -63,7 +89,7 @@ def addPages(request):
 def updatePages(request, pk):
     pages = Pages.objects.get(id=pk)
     form = PagesForm(instance=pages)
-    nama_model = 'Update Pages'
+    nama_model = 'Update Page'
 
     if request.method == 'POST':
         form = PagesForm(request.POST, instance=pages)

@@ -25,7 +25,7 @@
                     <p>
                         <ul>
                         {% for page in list_pages %}
-                            <li><a href="{% url 'pages_detail' page.category.slug page.slug %}">{{ page.title }}</a></li>
+                            <li><a href="{% url 'u_pages_detail' page.category.slug page.slug %}">{{ page.title }}</a></li>
                         {% endfor %}
                         </ul>
                     </p>

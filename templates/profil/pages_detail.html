@@ -3,19 +3,19 @@
 {% block content %}
 
     <div role="main" class="main">
-        <section class="page-header page-header-modern bg-color-primary page-header-md">
+        <section class="page-header page-header-modern bg-color-primary page-header-sm">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                        <h1 data-title-border>{{ pages.title }}</h1>
-                    </div>
+                        <h1 data-title-border>{{object.title|safe}}</h1>
+                    </div>                    
                     <div class="col-md-4 order-1 order-md-2 align-self-center">
                         <ul class="breadcrumb d-block text-md-right breadcrumb-light">
                             <li><a href="/">Home</a></li>
-                            <li><a href="{% url 'category_detail' pages.category.slug %}">{{ pages.category }}</a></li>
-                            <li class="active">{{ pages.title }}</li>
+                            <li class="active"><a href="{% url 'u_pages_list_by_cat' pages.category.slug %}">{{ object.category }}</a></li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -23,8 +23,22 @@
         <div class="container">
 
             <div class="row">
-                <div class="col py-4">                
-                    <p>{{ pages.isi|safe }}</p>
+                <div class="col">
+                    <div class="blog-posts single-post">
+                    
+                        <article class="post post-large blog-single-post border-0 m-0 p-0">
+                            <div class="post-image ml-0">
+                                <a href="#">
+                                    <img src="{{object.thumbnail.url}}" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+                                </a>
+                            </div>
+                    
+                            <div class="post-content ml-0">
+                                {{ object.isi|safe }}
+                            </div>
+                        </article>
+                    
+                    </div>
                 </div>
             </div>
 
