@@ -8,6 +8,8 @@
 		<meta name="description" content="Official Website Desa {{conf_nama_desa}}, Kecamatan {{conf_kec}} Kabupaten {{conf_kab}}, Kalimantan Barat">
 		<meta name="author" content="Desa {{conf_nama_desa}}">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="shortcut icon" href="{% static "images/favicon.png" type="image/x-icon" %}" />
+		<link rel="apple-touch-icon" href="{% static "images/favicon.png" %}" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,800,900|Shadows+Into+Light" rel="stylesheet" type="text/css">
 		<!-- Vendor CSS -->
 		<link rel="stylesheet" href="{% static "vendor/bootstrap/css/bootstrap.css" %}" />
@@ -48,44 +50,59 @@
 									<li class="{% block dash_nav %}{% endblock  %}">
 										<a class="nav-link" href="{% url "dashboard" %}">
 											Dashboard
-										</a>    
+										</a>
 									</li>
 									<li class="dropdown {% block profil_nav %}{% endblock %}">
 										<a class="nav-link dropdown-toggle" href="#">
-											Web Profil
+											Profil Desa
 										</a>
 										<ul class="dropdown-menu">
-											<li>
-												<a class="nav-link" href="{% url "qapuas_profil" %}">
+											<li class="dropdown-submenu">
+												<a class="nav-link">
 													Halaman Profil
 												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a class="nav-link" href="{% url "qapuas_profil" %}">
+															Profil Umum
+														</a>
+													</li>
+													<li>
+														<a class="nav-link" href="#">
+															Profil Pemerintahan Desa
+														</a>
+													</li>
+													<li>
+														<a class="nav-link" href="#">
+															Profil PPID
+														</a>
+													</li>
+													<li>
+														<a class="nav-link" href="#">
+															Pelayanan
+														</a>
+													</li>
+													<li>
+														<a class="nav-link" href="#">
+															Produk Hukum
+														</a>
+													</li>
+													<li>
+														<a class="nav-link" href="#">
+															Laporan
+														</a>
+													</li>
+												</ul>
 											</li>
 											<li>
 												<a class="nav-link" href="{% url "qapuas_berita" %}">
 													Berita
 												</a>
 											</li>
-											<li class="dropdown-submenu">
-												<a class="nav-link">
-													Horizontal Menu Header
+											<li>
+												<a class="nav-link" href="{% url "qapuas_produk" %}">
+													Produk Desa
 												</a>
-												<ul class="dropdown-menu">
-													<li>
-														<a class="nav-link" href="#">
-															Pills
-														</a>
-													</li>
-													<li>
-														<a class="nav-link" href="#">
-															Stripe
-														</a>
-													</li>
-													<li>
-														<a class="nav-link" href="#">
-															Top Line
-														</a>
-													</li>
-												</ul>
 											</li>
 											<li>
 												<a class="nav-link" href="#">
