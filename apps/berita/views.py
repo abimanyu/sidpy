@@ -9,6 +9,7 @@ from .forms import BeritaForm, CategoryForm, TagForm
 
 class BeritaListView(ListView):
     model = Berita
+    paginate_by = 5
     template_name = "berita/berita_list.html"
     ordering = ['-date_added']    
     extra_context = {
@@ -23,6 +24,7 @@ class BeritaListView(ListView):
 
 class CategoryListView(ListView):
     model = Berita
+    paginate_by = 5
     template_name = "berita/by_cat_list.html"
     extra_context = {
         'page_title':'Berita',
@@ -45,26 +47,6 @@ class UserListView(ListView):
 class BeritaDetailView(DetailView):
     model = Berita
     template_name = "berita/berita_detail.html"
-
-def Berita_Detail (request, category_slug, slug):
-    berita = get_object_or_404(Berita, slug=slug)
-
-    context = {
-        'berita': berita
-    }
-
-    return render(request, 'berita/berita_detail.html', context)
-
-def Category_Detail (request, slug):
-    category = get_object_or_404(Category, slug=slug)
-    list_berita = category.all_berita.all()
-
-    context = {
-        'Category': category,
-        'List_Berita': list_berita
-    }
-
-    return render(request, 'berita/category_detail.html', context)
 
 
 # ___________________________________

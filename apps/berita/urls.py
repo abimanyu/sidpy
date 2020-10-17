@@ -3,8 +3,8 @@ from django.views.generic import ListView, DetailView
 from . import views
 
 urlpatterns = [
-    path('berita/', views.BeritaListView.as_view(paginate_by=5), name='list'),
-    path('berita/<slug:slug>/', views.CategoryListView.as_view(paginate_by=5), name='by_cat_list'),
+    path('berita/', views.BeritaListView.as_view(), name='berita_list'),
+    path('berita/<slug:slug>/', views.CategoryListView.as_view(), name='by_cat_list'),
     path('berita/by:<username>', views.UserListView.as_view(paginate_by=5), name='by_user_list'),
     path('berita/<slug:category_slug>/<slug:slug>/', views.BeritaDetailView.as_view(), name='Berita_Detail'),
     #path('berita/<slug:slug>', views.Berita_Detail, name='Category_Detail'),
