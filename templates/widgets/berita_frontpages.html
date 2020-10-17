@@ -4,21 +4,20 @@
             <h3 class="font-weight-bold text-3 mt-4 mt-md-0">Aktifitas Desa</h3>
 
             <div class="owl-carousel owl-theme" data-plugin-options="{'items': 1, 'margin': 10, 'loop': true, 'nav': false, 'dots': false, 'autoplay': true, 'autoplayTimeout': 5000}">
-
                 {% for berita in List_Berita %}
                 <div>
                     <a href="{% url 'Berita_Detail' berita.category.slug berita.slug %}">
                         <article>
                             <div class="thumb-info thumb-info-no-borders thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom border-radius-0">
                                 <div class="thumb-info-wrapper thumb-info-wrapper-opacity-6">
-                                    <img src="{% static "images/contoh/blog-65.jpg" %}" class="img-fluid" alt="Main Reasons To Stop Texting And Driving">
+                                    <img src="{{berita.thumbnail.url}}" class="img-fluid" alt="Main Reasons To Stop Texting And Driving">
                                     <div class="thumb-info-title bg-transparent p-4">
-                                        <div class="thumb-info-type bg-color-primary px-2 mb-1">{{ berita.category.title }}</div>
+                                        <div class="thumb-info-type bg-color-primary px-2 mb-1">{{berita.category}}</div>
                                         <div class="thumb-info-inner mt-1">
-                                            <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0">{{ berita.title }}</h2>
+                                            <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0">{{berita.title|safe}}</h2>
                                         </div>
                                         <div class="thumb-info-show-more-content">
-                                            <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">{{ berita.isi }}</p>
+                                            <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">{{berita.isi|truncatechars:100|safe}}</p>
                                         </div>
                                     </div>
                                 </div>

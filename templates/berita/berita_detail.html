@@ -1,41 +1,72 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}{{ berita.title }} |{% endblock  %}
 
 {% block content %}
-
     <div role="main" class="main">
-        <section class="page-header page-header-modern bg-color-primary page-header-md">
+        <section class="page-header page-header-modern bg-color-light-scale-1 page-header-sm">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                        <h1 data-title-border>{{ object.title }}</h1>
-                    </div>
+                        <h1 class="text-dark">Berita <strong>Desa</strong></h1>
+                    </div>                    
                     <div class="col-md-4 order-1 order-md-2 align-self-center">
-                        <ul class="breadcrumb d-block text-md-right breadcrumb-light">
+                        <ul class="breadcrumb d-block text-md-right">
                             <li><a href="/">Home</a></li>
-                            <li><a href="{% url 'by_cat_list' berita.category.slug %}">{{ object.category.title }}</a></li>
-                            <li class="active">{{ object.title }}</li>
+                            <li><a href="{%url 'berita_list' %}">Berita</a></li>
+                            <li class="active"><a href="{% url 'by_cat_list' berita.category.slug %}">{{ object.category }}</a></li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <div class="container">
-
             <div class="row">
-                <div class="col py-4">                
-                    <img class="thumbnail" src="">
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col">
+                            <div class="blog-posts single-post">
+                            
+                                <article class="post post-large blog-single-post border-0 m-0 p-0">
+                                    {%if object.thumbnail %}
+                                    <div class="post-image ml-0">
+                                        <a href="#">
+                                            <img src="{{object.thumbnail.url}}" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+                                        </a>
+                                    </div>
+                                    {% endif %}
+                            
+                                    <div class="post-date ml-0">
+                                        <span class="day">{{object.date_added|date:"d"}}</span>
+                                        <span class="month">{{object.date_added|date:"M"}}</span>
+                                    </div>
+                            
+                                    <div class="post-content ml-0">
+                            
+                                        <h2 class="font-weight-bold text-primary">{{object.title|safe}}</h2>
+                            
+                                        <div class="post-meta">
+                                            <span><i class="far fa-user"></i> By <a href="{%url 'by_user_list' object.author %}">{{object.author}}</a> </span>
+                                            <span><i class="far fa-folder"></i> <a href="{% url 'by_cat_list' object.category.slug %}">{{ object.category }}</a> </span>
+                                            <span><i class="far fa-comment"></i> <a href="#">12 Comments</a></span>
+                                        </div>
+
+                                        {{ object.isi|safe }}
+
+                                    </div>
+                                </article>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 mt-4 mt-lg-0">
+                    {% include "berita/sidebar.html" %}
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col py-4">                
-                    <p>{{ object.isi|safe }}</p>
-                </div>
-            </div>
-
         </div>
     </div>
 
